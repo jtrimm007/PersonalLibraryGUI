@@ -1,34 +1,64 @@
-﻿using LibraryManagement;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	Solution/Project:  Personal Library GUI
+//	File Name:         PrersonalLibraryForm.cs
+//	Description:       YOUR DESCRIPTION HERE
+//	Course:            CSCI 2210 - Data Structures	
+//	Author:           Joshua Trimm, trimmj@etsu.edu
+//	Created:           10/16/2021
+//	Copyright:         Joshua Trimm, 2021
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace PersonalLibraryGUI
 {
-    public partial class Form1 : Form
+    using LibraryManagement;
+    using System;
+    using System.ComponentModel;
+    using System.Linq;
+    using System.Windows.Forms;
+
+    /// <summary>
+    /// Defines the <see cref="PersonalLibraryForm" />.
+    /// </summary>
+    public partial class PersonalLibraryForm : Form
     {
+        /// <summary>
+        /// Gets or sets the Person.
+        /// </summary>
         public Person Person { get; set; } = new Person();
-        public Form1()
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PersonalLibraryForm"/> class.
+        /// </summary>
+        public PersonalLibraryForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// The EmailInput_TextBoxChange.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="EventArgs"/>.</param>
         private void EmailInput_TextBoxChange(object sender, EventArgs e)
         {
-            //Console.WriteLine($"Object {sender} and EventArgs {e}");
         }
 
+        /// <summary>
+        /// The textBox1_Validating.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="CancelEventArgs"/>.</param>
         private void textBox1_Validating(object sender, CancelEventArgs e)
         {
-
         }
 
+        /// <summary>
+        /// The EmailInput_Leave.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="EventArgs"/>.</param>
         private void EmailInput_Leave(object sender, EventArgs e)
         {
 
@@ -39,9 +69,13 @@ namespace PersonalLibraryGUI
                 InvalidLabel.Visible = true;
             else
                 InvalidLabel.Visible = false;
-
         }
 
+        /// <summary>
+        /// The FirstName_Leave.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="EventArgs"/>.</param>
         private void FirstName_Leave(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -52,6 +86,11 @@ namespace PersonalLibraryGUI
                 InvalidFirstName.Visible = false;
         }
 
+        /// <summary>
+        /// The LastNameInput_Leave.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="EventArgs"/>.</param>
         private void LastNameInput_Leave(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -62,6 +101,11 @@ namespace PersonalLibraryGUI
                 InvalidLastName.Visible = false;
         }
 
+        /// <summary>
+        /// The PhoneNumber_Leave.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="EventArgs"/>.</param>
         private void PhoneNumber_Leave(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -72,6 +116,11 @@ namespace PersonalLibraryGUI
                 InvalidPhone.Visible = false;
         }
 
+        /// <summary>
+        /// The AddDashesToNumber_TextChanged.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="EventArgs"/>.</param>
         private void AddDashesToNumber_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -98,7 +147,7 @@ namespace PersonalLibraryGUI
             if (textBox.TextLength == 3)
                 PhoneNumberInput.Text += "-";
 
-            if(textBox.TextLength == 7)
+            if (textBox.TextLength == 7)
                 PhoneNumberInput.Text += "-";
 
             if (textBox.TextLength > 12)
@@ -108,9 +157,13 @@ namespace PersonalLibraryGUI
                 PhoneNumberInput.Text = phone;
             }
             PhoneNumberInput.Select(PhoneNumberInput.Text.Length, 0);
-
         }
 
+        /// <summary>
+        /// The ENumber_Leave.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="EventArgs"/>.</param>
         private void ENumber_Leave(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -119,9 +172,13 @@ namespace PersonalLibraryGUI
                 InvalidENumber.Visible = true;
             else
                 InvalidENumber.Visible = false;
-
         }
 
+        /// <summary>
+        /// The City_Leave.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="EventArgs"/>.</param>
         private void City_Leave(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -133,6 +190,11 @@ namespace PersonalLibraryGUI
                 InvalidCity.Visible = false;
         }
 
+        /// <summary>
+        /// The State_Leave.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="EventArgs"/>.</param>
         private void State_Leave(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -144,6 +206,11 @@ namespace PersonalLibraryGUI
                 InvalidState.Visible = false;
         }
 
+        /// <summary>
+        /// The Zip_Leave.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="EventArgs"/>.</param>
         private void Zip_Leave(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -156,6 +223,11 @@ namespace PersonalLibraryGUI
                 InvalidZip.Visible = false;
         }
 
+        /// <summary>
+        /// The Street_Leave.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="EventArgs"/>.</param>
         private void Street_Leave(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;

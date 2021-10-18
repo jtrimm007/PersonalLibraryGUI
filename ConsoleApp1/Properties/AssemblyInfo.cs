@@ -1,27 +1,15 @@
-﻿///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//	Solution/Project:  Personal Library GUI
-//	File Name:         AssemblyInfo.cs
-//	Description:       YOUR DESCRIPTION HERE
-//	Course:            CSCI 2210 - Data Structures	
-//	Author:           Joshua Trimm, trimmj@etsu.edu
-//	Created:           10/16/2021
-//	Copyright:         Joshua Trimm, 2021
-//
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-using System.Reflection;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Personal Library GUI")]
-[assembly: AssemblyDescription("This application is a simple library management system that allows users to manage books in a library and the users of those books. ")]
+[assembly: AssemblyTitle("ConsoleApp1")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Data Structures")]
-[assembly: AssemblyProduct("PersonalLibraryGUI")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ConsoleApp1")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f1b5b7ab-a675-4902-8584-3b8ea7c0566c")]
+[assembly: Guid("69edd4c0-ce0c-4339-a151-a4b874f499ac")]
 
 // Version information for an assembly consists of the following four values:
 //

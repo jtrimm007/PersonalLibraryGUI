@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F1B5B7AB-A675-4902-8584-3B8EA7C0566C}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>PersonalLibraryGUI</RootNamespace>
-    <AssemblyName>PersonalLibraryGUI</AssemblyName>
+    <ProjectGuid>{69EDD4C0-CE0C-4339-A151-A4B874F499AC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ConsoleApp1</RootNamespace>
+    <AssemblyName>ConsoleApp1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -39,65 +39,21 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PrersonalLibraryForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PrersonalLibraryForm.Designer.cs">
-      <DependentUpon>PrersonalLibraryForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SplashScreenForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SplashScreenForm.Designer.cs">
-      <DependentUpon>SplashScreenForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PrersonalLibraryForm.resx">
-      <DependentUpon>PrersonalLibraryForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="SplashScreenForm.resx">
-      <DependentUpon>SplashScreenForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="PersonalLibraryGUI.header" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibraryManagement\LibraryManagement.csproj">
-      <Project>{6AB69D12-8BE0-4177-BD23-DB57E1A1A7CB}</Project>
+      <Project>{6ab69d12-8be0-4177-bd23-db57e1a1a7cb}</Project>
       <Name>LibraryManagement</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\TrimYard Black Background logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

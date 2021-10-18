@@ -1,6 +1,19 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	Solution/Project:  Personal Library GUI
+//	Library Purpose:   To add a layer of abstraction to implement DRY programing principles.
+//	File Name:         AssemblyInfo.cs
+//	Description:       YOUR DESCRIPTION HERE
+//	Course:            CSCI 2210 - Data Structures	
+//	Author:           Joshua Trimm, trimmj@etsu.edu
+//	Created:           10/16/2021
+//	Copyright:         Joshua Trimm, 2021
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+using System.Reflection;
 using System.Runtime.InteropServices;
+
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information

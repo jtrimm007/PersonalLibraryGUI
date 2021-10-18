@@ -1,10 +1,24 @@
-﻿
+﻿///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	Solution/Project:  Personal Library GUI
+//	File Name:         PrersonalLibraryForm.Designer.cs
+//	Description:       YOUR DESCRIPTION HERE
+//	Course:            CSCI 2210 - Data Structures	
+//	Author:           Joshua Trimm, trimmj@etsu.edu
+//	Created:           10/16/2021
+//	Copyright:         Joshua Trimm, 2021
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 namespace PersonalLibraryGUI
 {
-    partial class Form1
+    /// <summary>
+    /// Defines the <see cref="PersonalLibraryForm" />.
+    /// </summary>
+    partial class PersonalLibraryForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// Required designer variable..
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -20,8 +34,6 @@ namespace PersonalLibraryGUI
             }
             base.Dispose(disposing);
         }
-
-        #region Windows Form Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -91,8 +103,8 @@ namespace PersonalLibraryGUI
             // textBox1
             // 
             this.textBox1.AccessibleName = "EmailInput";
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(36, 68);
             this.textBox1.Name = "textBox1";
@@ -254,8 +266,8 @@ namespace PersonalLibraryGUI
             // FirstName
             // 
             this.FirstName.AccessibleName = "FirstName";
-            this.FirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.FirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FirstName.Location = new System.Drawing.Point(36, 137);
             this.FirstName.Name = "FirstName";
@@ -290,8 +302,8 @@ namespace PersonalLibraryGUI
             // PhoneNumberInput
             // 
             this.PhoneNumberInput.AccessibleName = "PhoneNumberInput";
-            this.PhoneNumberInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.PhoneNumberInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PhoneNumberInput.Location = new System.Drawing.Point(36, 270);
             this.PhoneNumberInput.Name = "PhoneNumberInput";
@@ -335,8 +347,8 @@ namespace PersonalLibraryGUI
             // LastNameInput
             // 
             this.LastNameInput.AccessibleName = "LastNameInput";
-            this.LastNameInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.LastNameInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LastNameInput.Location = new System.Drawing.Point(36, 201);
             this.LastNameInput.Name = "LastNameInput";
@@ -359,8 +371,8 @@ namespace PersonalLibraryGUI
             // textBox2
             // 
             this.textBox2.AccessibleName = "FirstName";
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Location = new System.Drawing.Point(257, 169);
             this.textBox2.Name = "textBox2";
@@ -391,8 +403,8 @@ namespace PersonalLibraryGUI
             // UserId
             // 
             this.UserId.AccessibleName = "UserId";
-            this.UserId.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.UserId.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UserId.Location = new System.Drawing.Point(592, 82);
             this.UserId.Name = "UserId";
@@ -404,8 +416,8 @@ namespace PersonalLibraryGUI
             // textBox6
             // 
             this.textBox6.AccessibleName = "FirstName";
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox6.Location = new System.Drawing.Point(257, 105);
             this.textBox6.Name = "textBox6";
@@ -446,8 +458,8 @@ namespace PersonalLibraryGUI
             // textBox7
             // 
             this.textBox7.AccessibleName = "EmailInput";
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox7.Location = new System.Drawing.Point(257, 68);
             this.textBox7.Name = "textBox7";
@@ -470,8 +482,8 @@ namespace PersonalLibraryGUI
             // textBox5
             // 
             this.textBox5.AccessibleName = "FirstName";
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox5.Location = new System.Drawing.Point(406, 169);
             this.textBox5.Name = "textBox5";
@@ -504,8 +516,8 @@ namespace PersonalLibraryGUI
             // textBox8
             // 
             this.textBox8.AccessibleName = "FirstName";
-            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox8.Location = new System.Drawing.Point(257, 237);
             this.textBox8.Name = "textBox8";
@@ -581,57 +593,236 @@ namespace PersonalLibraryGUI
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
-        #endregion
-
+        /// <summary>
+        /// Defines the button1.
+        /// </summary>
         private System.Windows.Forms.Button button1;
+
+        /// <summary>
+        /// Defines the textBox1.
+        /// </summary>
         private System.Windows.Forms.TextBox textBox1;
+
+        /// <summary>
+        /// Defines the label1.
+        /// </summary>
         private System.Windows.Forms.Label label1;
+
+        /// <summary>
+        /// Defines the menuStrip1.
+        /// </summary>
         private System.Windows.Forms.MenuStrip menuStrip1;
+
+        /// <summary>
+        /// Defines the toolStripMenuItem1.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+
+        /// <summary>
+        /// Defines the openToolStripMenuItem.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+
+        /// <summary>
+        /// Defines the saveToolStripMenuItem.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+
+        /// <summary>
+        /// Defines the sortToolStripMenuItem.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem sortToolStripMenuItem;
+
+        /// <summary>
+        /// Defines the showAllByAuthorToolStripMenuItem.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem showAllByAuthorToolStripMenuItem;
+
+        /// <summary>
+        /// Defines the quiteToolStripMenuItem.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem quiteToolStripMenuItem;
+
+        /// <summary>
+        /// Defines the modifyToolStripMenuItem.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem;
+
+        /// <summary>
+        /// Defines the addToolStripMenuItem.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+
+        /// <summary>
+        /// Defines the removeToolStripMenuItem.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
+
+        /// <summary>
+        /// Defines the editToolStripMenuItem.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+
+        /// <summary>
+        /// Defines the updateOwnerToolStripMenuItem.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem updateOwnerToolStripMenuItem;
+
+        /// <summary>
+        /// Defines the helpToolStripMenuItem.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+
+        /// <summary>
+        /// Defines the aboutToolStripMenuItem.
+        /// </summary>
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+
+        /// <summary>
+        /// Defines the statusStrip1.
+        /// </summary>
         private System.Windows.Forms.StatusStrip statusStrip1;
+
+        /// <summary>
+        /// Defines the toolStripStatusLabel1.
+        /// </summary>
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+
+        /// <summary>
+        /// Defines the InvalidLabel.
+        /// </summary>
         private System.Windows.Forms.Label InvalidLabel;
+
+        /// <summary>
+        /// Defines the label2.
+        /// </summary>
         private System.Windows.Forms.Label label2;
+
+        /// <summary>
+        /// Defines the FirstName.
+        /// </summary>
         private System.Windows.Forms.TextBox FirstName;
+
+        /// <summary>
+        /// Defines the InvalidFirstName.
+        /// </summary>
         private System.Windows.Forms.Label InvalidFirstName;
+
+        /// <summary>
+        /// Defines the InvalidPhone.
+        /// </summary>
         private System.Windows.Forms.Label InvalidPhone;
+
+        /// <summary>
+        /// Defines the PhoneNumberInput.
+        /// </summary>
         private System.Windows.Forms.TextBox PhoneNumberInput;
+
+        /// <summary>
+        /// Defines the PhoneNumber.
+        /// </summary>
         private System.Windows.Forms.Label PhoneNumber;
+
+        /// <summary>
+        /// Defines the InvalidLastName.
+        /// </summary>
         private System.Windows.Forms.Label InvalidLastName;
+
+        /// <summary>
+        /// Defines the LastName.
+        /// </summary>
         private System.Windows.Forms.Label LastName;
+
+        /// <summary>
+        /// Defines the LastNameInput.
+        /// </summary>
         private System.Windows.Forms.TextBox LastNameInput;
+
+        /// <summary>
+        /// Defines the InvalidCity.
+        /// </summary>
         private System.Windows.Forms.Label InvalidCity;
+
+        /// <summary>
+        /// Defines the textBox2.
+        /// </summary>
         private System.Windows.Forms.TextBox textBox2;
+
+        /// <summary>
+        /// Defines the label4.
+        /// </summary>
         private System.Windows.Forms.Label label4;
+
+        /// <summary>
+        /// Defines the label8.
+        /// </summary>
         private System.Windows.Forms.Label label8;
+
+        /// <summary>
+        /// Defines the UserId.
+        /// </summary>
         private System.Windows.Forms.TextBox UserId;
+
+        /// <summary>
+        /// Defines the textBox6.
+        /// </summary>
         private System.Windows.Forms.TextBox textBox6;
+
+        /// <summary>
+        /// Defines the label11.
+        /// </summary>
         private System.Windows.Forms.Label label11;
+
+        /// <summary>
+        /// Defines the InvalidAddress.
+        /// </summary>
         private System.Windows.Forms.Label InvalidAddress;
+
+        /// <summary>
+        /// Defines the label13.
+        /// </summary>
         private System.Windows.Forms.Label label13;
+
+        /// <summary>
+        /// Defines the textBox7.
+        /// </summary>
         private System.Windows.Forms.TextBox textBox7;
+
+        /// <summary>
+        /// Defines the InvalidState.
+        /// </summary>
         private System.Windows.Forms.Label InvalidState;
+
+        /// <summary>
+        /// Defines the textBox5.
+        /// </summary>
         private System.Windows.Forms.TextBox textBox5;
+
+        /// <summary>
+        /// Defines the label10.
+        /// </summary>
         private System.Windows.Forms.Label label10;
+
+        /// <summary>
+        /// Defines the InvalidZip.
+        /// </summary>
         private System.Windows.Forms.Label InvalidZip;
+
+        /// <summary>
+        /// Defines the textBox8.
+        /// </summary>
         private System.Windows.Forms.TextBox textBox8;
+
+        /// <summary>
+        /// Defines the label15.
+        /// </summary>
         private System.Windows.Forms.Label label15;
+
+        /// <summary>
+        /// Defines the InvalidENumber.
+        /// </summary>
         private System.Windows.Forms.Label InvalidENumber;
     }
 }
-

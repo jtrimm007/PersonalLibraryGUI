@@ -16,7 +16,10 @@ namespace PersonalLibraryGUI
     using System;
     using System.ComponentModel;
     using System.Linq;
+    using System.Windows;
     using System.Windows.Forms;
+    using MessageBox = System.Windows.Forms.MessageBox;
+
 
     /// <summary>
     /// Defines the <see cref="PersonalLibraryForm" />.
@@ -27,6 +30,8 @@ namespace PersonalLibraryGUI
         /// Gets or sets the Person.
         /// </summary>
         public Person Person { get; set; } = new Person();
+
+        public PersonalLibrary PersonalLibrary { get; set; } = new PersonalLibrary();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonalLibraryForm"/> class.
@@ -242,6 +247,118 @@ namespace PersonalLibraryGUI
         {
             AboutBox2 aboutBox2 = new AboutBox2();
             aboutBox2.Show(this);
+        }
+
+        private void updateOwnerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(PersonalLibrary.LibraryOwner == null)
+            {
+                MessageBox.Show($"Please open the library. The owner has not yet been set.", $"{DateTime.Now}", (MessageBoxButtons)MessageBoxButton.OK, MessageBoxIcon.Information);
+                return;
+            }
+            LibraryOwnerBox.Visible = true;
+            BookDetails.Visible = false;
+
+            EmailInput.Text = PersonalLibrary.LibraryOwner.Email;
+            FirstNameInput.Text = PersonalLibrary.LibraryOwner.FirstName;
+            LastNameInput.Text = PersonalLibrary.LibraryOwner.LastName;
+            PhoneNumberInput.Text = PersonalLibrary.LibraryOwner.PhoneNumber;
+            StreetAddressLineOneInput.Text = PersonalLibrary.LibraryOwner.StreetAddressLineOne;
+            AddressLineTwoInput.Text = PersonalLibrary.LibraryOwner.AddressLineTwo;
+            CityInput.Text = PersonalLibrary.LibraryOwner.City;
+            StateInput.Text = PersonalLibrary.LibraryOwner.State;
+            ZipInput.Text = PersonalLibrary.LibraryOwner.Zip;
+            UserIdInput.Text = PersonalLibrary.LibraryOwner.Id;
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (PersonalLibrary != null)
+            {
+                BooksInLibrary.DataSource = null;
+                PersonalLibrary = new PersonalLibrary();
+            }
+
+            FileManager.OpenFileAndSetTextToGlobalProperty();
+
+            PersonalLibrary.SetOwnerAndBooksList();
+
+
+
+            BooksInLibrary.DataSource = PersonalLibrary.GetBooksListOfTitles();
+        }
+
+        private void BooksInLibrary_Click(object sender, EventArgs e)
+        {
+            var book = PersonalLibrary[BooksInLibrary.SelectedItem.ToString()];
+
+            BookType.Text = book.Type.ToString();
+            Title.Text = book.Title;
+            Author.Text = book.Author;
+            Coauthor.Text = book.Coauthor;
+            Category.Text = book.Category.ToString();
+            Price.Text = book.Price.ToString();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BookType.ReadOnly = false;
+            //Title.ReadOnly = false;
+            Author.ReadOnly = false;
+            Coauthor.ReadOnly = false;
+            Category.ReadOnly = false;
+            Price.ReadOnly = false;
+            BookDetails.Text = "Edit Book";
+            Update.Visible = true;
+        }
+
+        private void Update_Click(object sender, EventArgs e)
+        {
+            var book = PersonalLibrary[Title.Text];
+
+            book.Type = book.ParseEnumBookType(BookType.Text);
+            book.Author = Author.Text;
+            book.Coauthor = Coauthor.Text;
+            book.Price = Decimal.Parse(Price.Text);
+            book.Category = book.ParseEnumCategory(Category.Text);
+
+            BookType.ReadOnly = true;
+            //Title.ReadOnly = false;
+            Author.ReadOnly = true;
+            Coauthor.ReadOnly = true;
+            Category.ReadOnly = true;
+            Price.ReadOnly = true;
+            BookDetails.Text = "Book Details";
+            Update.Visible = false;
+        }
+
+        private void UpdateOwner_Click(object sender, EventArgs e)
+        {
+            PersonalLibrary.LibraryOwner.Email = EmailInput.Text;
+            PersonalLibrary.LibraryOwner.FirstName = FirstNameInput.Text;
+            PersonalLibrary.LibraryOwner.LastName = LastNameInput.Text;
+            PersonalLibrary.LibraryOwner.PhoneNumber = PhoneNumberInput.Text;
+            PersonalLibrary.LibraryOwner.StreetAddressLineOne = StreetAddressLineOneInput.Text;
+            PersonalLibrary.LibraryOwner.AddressLineTwo = AddressLineTwoInput.Text;
+            PersonalLibrary.LibraryOwner.City = CityInput.Text;
+            PersonalLibrary.LibraryOwner.State = StateInput.Text;
+            PersonalLibrary.LibraryOwner.Zip = ZipInput.Text;
+            PersonalLibrary.LibraryOwner.Id = UserIdInput.Text;
+
+            LibraryOwnerBox.Visible = false;
+            BookDetails.Visible = true;
+        }
+
+        private void CancelUpdateOwner_Click(object sender, EventArgs e)
+        {
+            LibraryOwnerBox.Visible = false;
+            BookDetails.Visible = true;
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileManager.SaveLibrary(PersonalLibrary);
+            PersonalLibrary.SaveNeeded = false;
         }
     }
 }

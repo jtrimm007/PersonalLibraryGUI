@@ -41,8 +41,8 @@ namespace PersonalLibraryGUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.UpdateOwner = new System.Windows.Forms.Button();
+            this.EmailInput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +62,7 @@ namespace PersonalLibraryGUI
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.InvalidLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.FirstName = new System.Windows.Forms.TextBox();
+            this.FirstNameInput = new System.Windows.Forms.TextBox();
             this.InvalidFirstName = new System.Windows.Forms.Label();
             this.InvalidPhone = new System.Windows.Forms.Label();
             this.PhoneNumberInput = new System.Windows.Forms.TextBox();
@@ -71,53 +71,71 @@ namespace PersonalLibraryGUI
             this.LastName = new System.Windows.Forms.Label();
             this.LastNameInput = new System.Windows.Forms.TextBox();
             this.InvalidCity = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.CityInput = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.UserId = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.UserIdInput = new System.Windows.Forms.TextBox();
+            this.AddressLineTwoInput = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.InvalidAddress = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.StreetAddressLineOneInput = new System.Windows.Forms.TextBox();
             this.InvalidState = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.StateInput = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.InvalidZip = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.ZipInput = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.InvalidENumber = new System.Windows.Forms.Label();
+            this.LibraryOwnerBox = new System.Windows.Forms.GroupBox();
+            this.BookDetails = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BooksInLibrary = new System.Windows.Forms.ListBox();
+            this.BookType = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Title = new System.Windows.Forms.TextBox();
+            this.Author = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Coauthor = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Category = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Price = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.Update = new System.Windows.Forms.Button();
+            this.CancelUpdateOwner = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.LibraryOwnerBox.SuspendLayout();
+            this.BookDetails.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // UpdateOwner
             // 
-            this.button1.Location = new System.Drawing.Point(70, 357);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.UpdateOwner.AccessibleName = "UpdateOwner";
+            this.UpdateOwner.Location = new System.Drawing.Point(280, 368);
+            this.UpdateOwner.Name = "UpdateOwner";
+            this.UpdateOwner.Size = new System.Drawing.Size(75, 23);
+            this.UpdateOwner.TabIndex = 0;
+            this.UpdateOwner.Text = "Update";
+            this.UpdateOwner.UseVisualStyleBackColor = true;
+            this.UpdateOwner.Click += new System.EventHandler(this.UpdateOwner_Click);
             // 
-            // textBox1
+            // EmailInput
             // 
-            this.textBox1.AccessibleName = "EmailInput";
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(36, 68);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(109, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.EmailInput_TextBoxChange);
-            this.textBox1.Leave += new System.EventHandler(this.EmailInput_Leave);
+            this.EmailInput.AccessibleName = "EmailInput";
+            this.EmailInput.Location = new System.Drawing.Point(27, 37);
+            this.EmailInput.Name = "EmailInput";
+            this.EmailInput.Size = new System.Drawing.Size(121, 20);
+            this.EmailInput.TabIndex = 1;
+            this.EmailInput.TextChanged += new System.EventHandler(this.EmailInput_TextBoxChange);
+            this.EmailInput.Leave += new System.EventHandler(this.EmailInput_Leave);
             // 
             // label1
             // 
             this.label1.AccessibleName = "EmailLabel";
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 52);
+            this.label1.Location = new System.Drawing.Point(23, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 2;
@@ -131,7 +149,7 @@ namespace PersonalLibraryGUI
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(836, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(779, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -152,12 +170,14 @@ namespace PersonalLibraryGUI
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
             this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // sortToolStripMenuItem
             // 
@@ -191,26 +211,28 @@ namespace PersonalLibraryGUI
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.addToolStripMenuItem.Text = "Add";
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.removeToolStripMenuItem.Text = "Remove";
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // updateOwnerToolStripMenuItem
             // 
             this.updateOwnerToolStripMenuItem.Name = "updateOwnerToolStripMenuItem";
-            this.updateOwnerToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
+            this.updateOwnerToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.updateOwnerToolStripMenuItem.Text = "Update Owner";
+            this.updateOwnerToolStripMenuItem.Click += new System.EventHandler(this.updateOwnerToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -223,7 +245,7 @@ namespace PersonalLibraryGUI
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -231,9 +253,9 @@ namespace PersonalLibraryGUI
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 472);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 530);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(836, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(779, 25);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -248,7 +270,7 @@ namespace PersonalLibraryGUI
             this.InvalidLabel.AccessibleName = "InvalidEmail";
             this.InvalidLabel.AutoSize = true;
             this.InvalidLabel.ForeColor = System.Drawing.Color.Red;
-            this.InvalidLabel.Location = new System.Drawing.Point(33, 91);
+            this.InvalidLabel.Location = new System.Drawing.Point(23, 60);
             this.InvalidLabel.Name = "InvalidLabel";
             this.InvalidLabel.Size = new System.Drawing.Size(101, 13);
             this.InvalidLabel.TabIndex = 5;
@@ -258,30 +280,27 @@ namespace PersonalLibraryGUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 121);
+            this.label2.Location = new System.Drawing.Point(23, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "First Name";
             // 
-            // FirstName
+            // FirstNameInput
             // 
-            this.FirstName.AccessibleName = "FirstName";
-            this.FirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FirstName.Location = new System.Drawing.Point(36, 137);
-            this.FirstName.Name = "FirstName";
-            this.FirstName.Size = new System.Drawing.Size(109, 20);
-            this.FirstName.TabIndex = 11;
-            this.FirstName.Leave += new System.EventHandler(this.FirstName_Leave);
+            this.FirstNameInput.AccessibleName = "FirstNameInput";
+            this.FirstNameInput.Location = new System.Drawing.Point(27, 106);
+            this.FirstNameInput.Name = "FirstNameInput";
+            this.FirstNameInput.Size = new System.Drawing.Size(121, 20);
+            this.FirstNameInput.TabIndex = 11;
+            this.FirstNameInput.Leave += new System.EventHandler(this.FirstName_Leave);
             // 
             // InvalidFirstName
             // 
             this.InvalidFirstName.AccessibleName = "InvalidFirstName";
             this.InvalidFirstName.AutoSize = true;
             this.InvalidFirstName.ForeColor = System.Drawing.Color.Red;
-            this.InvalidFirstName.Location = new System.Drawing.Point(33, 160);
+            this.InvalidFirstName.Location = new System.Drawing.Point(23, 129);
             this.InvalidFirstName.Name = "InvalidFirstName";
             this.InvalidFirstName.Size = new System.Drawing.Size(137, 13);
             this.InvalidFirstName.TabIndex = 12;
@@ -293,7 +312,7 @@ namespace PersonalLibraryGUI
             this.InvalidPhone.AccessibleName = "InvalidPhone";
             this.InvalidPhone.AutoSize = true;
             this.InvalidPhone.ForeColor = System.Drawing.Color.Red;
-            this.InvalidPhone.Location = new System.Drawing.Point(33, 293);
+            this.InvalidPhone.Location = new System.Drawing.Point(23, 262);
             this.InvalidPhone.Name = "InvalidPhone";
             this.InvalidPhone.Size = new System.Drawing.Size(137, 13);
             this.InvalidPhone.TabIndex = 18;
@@ -303,12 +322,9 @@ namespace PersonalLibraryGUI
             // PhoneNumberInput
             // 
             this.PhoneNumberInput.AccessibleName = "PhoneNumberInput";
-            this.PhoneNumberInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PhoneNumberInput.Location = new System.Drawing.Point(36, 270);
+            this.PhoneNumberInput.Location = new System.Drawing.Point(27, 239);
             this.PhoneNumberInput.Name = "PhoneNumberInput";
-            this.PhoneNumberInput.Size = new System.Drawing.Size(109, 20);
+            this.PhoneNumberInput.Size = new System.Drawing.Size(121, 20);
             this.PhoneNumberInput.TabIndex = 17;
             this.PhoneNumberInput.TextChanged += new System.EventHandler(this.AddDashesToNumber_TextChanged);
             this.PhoneNumberInput.Leave += new System.EventHandler(this.PhoneNumber_Leave);
@@ -317,7 +333,7 @@ namespace PersonalLibraryGUI
             // 
             this.PhoneNumber.AccessibleName = "PhoneNumber";
             this.PhoneNumber.AutoSize = true;
-            this.PhoneNumber.Location = new System.Drawing.Point(33, 254);
+            this.PhoneNumber.Location = new System.Drawing.Point(23, 223);
             this.PhoneNumber.Name = "PhoneNumber";
             this.PhoneNumber.Size = new System.Drawing.Size(78, 13);
             this.PhoneNumber.TabIndex = 16;
@@ -328,7 +344,7 @@ namespace PersonalLibraryGUI
             this.InvalidLastName.AccessibleName = "InvalidLastName";
             this.InvalidLastName.AutoSize = true;
             this.InvalidLastName.ForeColor = System.Drawing.Color.Red;
-            this.InvalidLastName.Location = new System.Drawing.Point(33, 224);
+            this.InvalidLastName.Location = new System.Drawing.Point(23, 193);
             this.InvalidLastName.Name = "InvalidLastName";
             this.InvalidLastName.Size = new System.Drawing.Size(137, 13);
             this.InvalidLastName.TabIndex = 15;
@@ -339,7 +355,7 @@ namespace PersonalLibraryGUI
             // 
             this.LastName.AccessibleName = "LastName";
             this.LastName.AutoSize = true;
-            this.LastName.Location = new System.Drawing.Point(33, 185);
+            this.LastName.Location = new System.Drawing.Point(23, 154);
             this.LastName.Name = "LastName";
             this.LastName.Size = new System.Drawing.Size(58, 13);
             this.LastName.TabIndex = 14;
@@ -348,12 +364,9 @@ namespace PersonalLibraryGUI
             // LastNameInput
             // 
             this.LastNameInput.AccessibleName = "LastNameInput";
-            this.LastNameInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LastNameInput.Location = new System.Drawing.Point(36, 201);
+            this.LastNameInput.Location = new System.Drawing.Point(27, 170);
             this.LastNameInput.Name = "LastNameInput";
-            this.LastNameInput.Size = new System.Drawing.Size(109, 20);
+            this.LastNameInput.Size = new System.Drawing.Size(121, 20);
             this.LastNameInput.TabIndex = 13;
             this.LastNameInput.Leave += new System.EventHandler(this.LastNameInput_Leave);
             // 
@@ -362,30 +375,27 @@ namespace PersonalLibraryGUI
             this.InvalidCity.AccessibleName = "InvalidCity";
             this.InvalidCity.AutoSize = true;
             this.InvalidCity.ForeColor = System.Drawing.Color.Red;
-            this.InvalidCity.Location = new System.Drawing.Point(254, 192);
+            this.InvalidCity.Location = new System.Drawing.Point(198, 161);
             this.InvalidCity.Name = "InvalidCity";
             this.InvalidCity.Size = new System.Drawing.Size(126, 13);
             this.InvalidCity.TabIndex = 30;
             this.InvalidCity.Text = "Please enter a city name.";
             this.InvalidCity.Visible = false;
             // 
-            // textBox2
+            // CityInput
             // 
-            this.textBox2.AccessibleName = "FirstName";
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(257, 169);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(128, 20);
-            this.textBox2.TabIndex = 29;
-            this.textBox2.Leave += new System.EventHandler(this.City_Leave);
+            this.CityInput.AccessibleName = "CityInput";
+            this.CityInput.Location = new System.Drawing.Point(201, 138);
+            this.CityInput.Name = "CityInput";
+            this.CityInput.Size = new System.Drawing.Size(140, 20);
+            this.CityInput.TabIndex = 29;
+            this.CityInput.Leave += new System.EventHandler(this.City_Leave);
             // 
             // label4
             // 
             this.label4.AccessibleName = "PhoneNumber";
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(254, 153);
+            this.label4.Location = new System.Drawing.Point(198, 122);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(24, 13);
             this.label4.TabIndex = 28;
@@ -395,40 +405,34 @@ namespace PersonalLibraryGUI
             // 
             this.label8.AccessibleName = "LastName";
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(589, 66);
+            this.label8.Location = new System.Drawing.Point(198, 259);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 13);
             this.label8.TabIndex = 26;
             this.label8.Text = "User Id";
             // 
-            // UserId
+            // UserIdInput
             // 
-            this.UserId.AccessibleName = "UserId";
-            this.UserId.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.UserId.Location = new System.Drawing.Point(592, 82);
-            this.UserId.Name = "UserId";
-            this.UserId.Size = new System.Drawing.Size(109, 20);
-            this.UserId.TabIndex = 25;
-            this.UserId.Text = "E00";
-            this.UserId.Leave += new System.EventHandler(this.ENumber_Leave);
+            this.UserIdInput.AccessibleName = "UserIdInput";
+            this.UserIdInput.Location = new System.Drawing.Point(201, 275);
+            this.UserIdInput.Name = "UserIdInput";
+            this.UserIdInput.Size = new System.Drawing.Size(121, 20);
+            this.UserIdInput.TabIndex = 25;
+            this.UserIdInput.Text = "E00";
+            this.UserIdInput.Leave += new System.EventHandler(this.ENumber_Leave);
             // 
-            // textBox6
+            // AddressLineTwoInput
             // 
-            this.textBox6.AccessibleName = "FirstName";
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Location = new System.Drawing.Point(257, 105);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(267, 20);
-            this.textBox6.TabIndex = 23;
+            this.AddressLineTwoInput.AccessibleName = "AddressLineTwoInput";
+            this.AddressLineTwoInput.Location = new System.Drawing.Point(201, 74);
+            this.AddressLineTwoInput.Name = "AddressLineTwoInput";
+            this.AddressLineTwoInput.Size = new System.Drawing.Size(279, 20);
+            this.AddressLineTwoInput.TabIndex = 23;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(254, 91);
+            this.label11.Location = new System.Drawing.Point(198, 60);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(125, 13);
             this.label11.TabIndex = 22;
@@ -439,7 +443,7 @@ namespace PersonalLibraryGUI
             this.InvalidAddress.AccessibleName = "InvalidAddress";
             this.InvalidAddress.AutoSize = true;
             this.InvalidAddress.ForeColor = System.Drawing.Color.Red;
-            this.InvalidAddress.Location = new System.Drawing.Point(254, 128);
+            this.InvalidAddress.Location = new System.Drawing.Point(198, 97);
             this.InvalidAddress.Name = "InvalidAddress";
             this.InvalidAddress.Size = new System.Drawing.Size(134, 13);
             this.InvalidAddress.TabIndex = 21;
@@ -450,53 +454,47 @@ namespace PersonalLibraryGUI
             // 
             this.label13.AccessibleName = "EmailLabel";
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(254, 52);
+            this.label13.Location = new System.Drawing.Point(198, 21);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(122, 13);
             this.label13.TabIndex = 20;
             this.label13.Text = "Street Address Line One";
             // 
-            // textBox7
+            // StreetAddressLineOneInput
             // 
-            this.textBox7.AccessibleName = "EmailInput";
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.Location = new System.Drawing.Point(257, 68);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(267, 20);
-            this.textBox7.TabIndex = 19;
-            this.textBox7.Leave += new System.EventHandler(this.Street_Leave);
+            this.StreetAddressLineOneInput.AccessibleName = "StreetAddressLineOneInput";
+            this.StreetAddressLineOneInput.Location = new System.Drawing.Point(201, 37);
+            this.StreetAddressLineOneInput.Name = "StreetAddressLineOneInput";
+            this.StreetAddressLineOneInput.Size = new System.Drawing.Size(279, 20);
+            this.StreetAddressLineOneInput.TabIndex = 19;
+            this.StreetAddressLineOneInput.Leave += new System.EventHandler(this.Street_Leave);
             // 
             // InvalidState
             // 
             this.InvalidState.AccessibleName = "InvalidState";
             this.InvalidState.AutoSize = true;
             this.InvalidState.ForeColor = System.Drawing.Color.Red;
-            this.InvalidState.Location = new System.Drawing.Point(403, 192);
+            this.InvalidState.Location = new System.Drawing.Point(347, 161);
             this.InvalidState.Name = "InvalidState";
             this.InvalidState.Size = new System.Drawing.Size(130, 13);
             this.InvalidState.TabIndex = 33;
             this.InvalidState.Text = "Please enter a state name";
             this.InvalidState.Visible = false;
             // 
-            // textBox5
+            // StateInput
             // 
-            this.textBox5.AccessibleName = "FirstName";
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(406, 169);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(118, 20);
-            this.textBox5.TabIndex = 32;
-            this.textBox5.Leave += new System.EventHandler(this.State_Leave);
+            this.StateInput.AccessibleName = "StateInput";
+            this.StateInput.Location = new System.Drawing.Point(350, 138);
+            this.StateInput.Name = "StateInput";
+            this.StateInput.Size = new System.Drawing.Size(130, 20);
+            this.StateInput.TabIndex = 32;
+            this.StateInput.Leave += new System.EventHandler(this.State_Leave);
             // 
             // label10
             // 
             this.label10.AccessibleName = "PhoneNumber";
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(403, 153);
+            this.label10.Location = new System.Drawing.Point(347, 122);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(32, 13);
             this.label10.TabIndex = 31;
@@ -507,30 +505,27 @@ namespace PersonalLibraryGUI
             this.InvalidZip.AccessibleName = "InvalidZip";
             this.InvalidZip.AutoSize = true;
             this.InvalidZip.ForeColor = System.Drawing.Color.Red;
-            this.InvalidZip.Location = new System.Drawing.Point(254, 260);
+            this.InvalidZip.Location = new System.Drawing.Point(198, 229);
             this.InvalidZip.Name = "InvalidZip";
             this.InvalidZip.Size = new System.Drawing.Size(157, 13);
             this.InvalidZip.TabIndex = 36;
             this.InvalidZip.Text = "Please provide a valid zip code.";
             this.InvalidZip.Visible = false;
             // 
-            // textBox8
+            // ZipInput
             // 
-            this.textBox8.AccessibleName = "FirstName";
-            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox8.Location = new System.Drawing.Point(257, 237);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(128, 20);
-            this.textBox8.TabIndex = 35;
-            this.textBox8.Leave += new System.EventHandler(this.Zip_Leave);
+            this.ZipInput.AccessibleName = "ZipInput";
+            this.ZipInput.Location = new System.Drawing.Point(201, 206);
+            this.ZipInput.Name = "ZipInput";
+            this.ZipInput.Size = new System.Drawing.Size(140, 20);
+            this.ZipInput.TabIndex = 35;
+            this.ZipInput.Leave += new System.EventHandler(this.Zip_Leave);
             // 
             // label15
             // 
             this.label15.AccessibleName = "PhoneNumber";
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(254, 221);
+            this.label15.Location = new System.Drawing.Point(198, 190);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(22, 13);
             this.label15.TabIndex = 34;
@@ -541,49 +536,230 @@ namespace PersonalLibraryGUI
             this.InvalidENumber.AccessibleName = "InvalidENumber";
             this.InvalidENumber.AutoSize = true;
             this.InvalidENumber.ForeColor = System.Drawing.Color.Red;
-            this.InvalidENumber.Location = new System.Drawing.Point(589, 105);
+            this.InvalidENumber.Location = new System.Drawing.Point(198, 298);
             this.InvalidENumber.Name = "InvalidENumber";
             this.InvalidENumber.Size = new System.Drawing.Size(179, 13);
             this.InvalidENumber.TabIndex = 37;
             this.InvalidENumber.Text = "Please enter a valid ETSU ENumber";
             this.InvalidENumber.Visible = false;
             // 
+            // LibraryOwnerBox
+            // 
+            this.LibraryOwnerBox.AccessibleName = "LibraryOwnerBox";
+            this.LibraryOwnerBox.Controls.Add(this.CancelUpdateOwner);
+            this.LibraryOwnerBox.Controls.Add(this.FirstNameInput);
+            this.LibraryOwnerBox.Controls.Add(this.InvalidENumber);
+            this.LibraryOwnerBox.Controls.Add(this.UpdateOwner);
+            this.LibraryOwnerBox.Controls.Add(this.EmailInput);
+            this.LibraryOwnerBox.Controls.Add(this.InvalidZip);
+            this.LibraryOwnerBox.Controls.Add(this.label1);
+            this.LibraryOwnerBox.Controls.Add(this.ZipInput);
+            this.LibraryOwnerBox.Controls.Add(this.InvalidLabel);
+            this.LibraryOwnerBox.Controls.Add(this.label15);
+            this.LibraryOwnerBox.Controls.Add(this.label2);
+            this.LibraryOwnerBox.Controls.Add(this.InvalidState);
+            this.LibraryOwnerBox.Controls.Add(this.InvalidFirstName);
+            this.LibraryOwnerBox.Controls.Add(this.StateInput);
+            this.LibraryOwnerBox.Controls.Add(this.LastNameInput);
+            this.LibraryOwnerBox.Controls.Add(this.label10);
+            this.LibraryOwnerBox.Controls.Add(this.LastName);
+            this.LibraryOwnerBox.Controls.Add(this.InvalidCity);
+            this.LibraryOwnerBox.Controls.Add(this.InvalidLastName);
+            this.LibraryOwnerBox.Controls.Add(this.CityInput);
+            this.LibraryOwnerBox.Controls.Add(this.PhoneNumber);
+            this.LibraryOwnerBox.Controls.Add(this.label4);
+            this.LibraryOwnerBox.Controls.Add(this.PhoneNumberInput);
+            this.LibraryOwnerBox.Controls.Add(this.label8);
+            this.LibraryOwnerBox.Controls.Add(this.InvalidPhone);
+            this.LibraryOwnerBox.Controls.Add(this.UserIdInput);
+            this.LibraryOwnerBox.Controls.Add(this.AddressLineTwoInput);
+            this.LibraryOwnerBox.Controls.Add(this.StreetAddressLineOneInput);
+            this.LibraryOwnerBox.Controls.Add(this.label11);
+            this.LibraryOwnerBox.Controls.Add(this.label13);
+            this.LibraryOwnerBox.Controls.Add(this.InvalidAddress);
+            this.LibraryOwnerBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.LibraryOwnerBox.Location = new System.Drawing.Point(283, 28);
+            this.LibraryOwnerBox.Name = "LibraryOwnerBox";
+            this.LibraryOwnerBox.Size = new System.Drawing.Size(496, 502);
+            this.LibraryOwnerBox.TabIndex = 38;
+            this.LibraryOwnerBox.TabStop = false;
+            this.LibraryOwnerBox.Text = "Library Owner";
+            this.LibraryOwnerBox.Visible = false;
+            // 
+            // BookDetails
+            // 
+            this.BookDetails.AccessibleName = "BookDetails";
+            this.BookDetails.Controls.Add(this.Update);
+            this.BookDetails.Controls.Add(this.Price);
+            this.BookDetails.Controls.Add(this.label12);
+            this.BookDetails.Controls.Add(this.Category);
+            this.BookDetails.Controls.Add(this.label9);
+            this.BookDetails.Controls.Add(this.Coauthor);
+            this.BookDetails.Controls.Add(this.label7);
+            this.BookDetails.Controls.Add(this.Author);
+            this.BookDetails.Controls.Add(this.label6);
+            this.BookDetails.Controls.Add(this.Title);
+            this.BookDetails.Controls.Add(this.label5);
+            this.BookDetails.Controls.Add(this.BookType);
+            this.BookDetails.Controls.Add(this.label3);
+            this.BookDetails.Location = new System.Drawing.Point(283, 28);
+            this.BookDetails.Name = "BookDetails";
+            this.BookDetails.Size = new System.Drawing.Size(496, 499);
+            this.BookDetails.TabIndex = 39;
+            this.BookDetails.TabStop = false;
+            this.BookDetails.Text = "Book Details";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Book Type";
+            // 
+            // BooksInLibrary
+            // 
+            this.BooksInLibrary.AccessibleName = "BooksInLibrary";
+            this.BooksInLibrary.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BooksInLibrary.FormattingEnabled = true;
+            this.BooksInLibrary.Location = new System.Drawing.Point(0, 28);
+            this.BooksInLibrary.Name = "BooksInLibrary";
+            this.BooksInLibrary.Size = new System.Drawing.Size(225, 502);
+            this.BooksInLibrary.TabIndex = 40;
+            this.BooksInLibrary.Click += new System.EventHandler(this.BooksInLibrary_Click);
+            // 
+            // BookType
+            // 
+            this.BookType.AccessibleName = "BookType";
+            this.BookType.Location = new System.Drawing.Point(27, 67);
+            this.BookType.Name = "BookType";
+            this.BookType.ReadOnly = true;
+            this.BookType.Size = new System.Drawing.Size(100, 20);
+            this.BookType.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(24, 122);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Title";
+            // 
+            // Title
+            // 
+            this.Title.AccessibleName = "Title";
+            this.Title.Location = new System.Drawing.Point(26, 138);
+            this.Title.Name = "Title";
+            this.Title.ReadOnly = true;
+            this.Title.Size = new System.Drawing.Size(100, 20);
+            this.Title.TabIndex = 3;
+            // 
+            // Author
+            // 
+            this.Author.AccessibleName = "Author";
+            this.Author.Location = new System.Drawing.Point(27, 206);
+            this.Author.Name = "Author";
+            this.Author.ReadOnly = true;
+            this.Author.Size = new System.Drawing.Size(100, 20);
+            this.Author.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(25, 190);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Author";
+            // 
+            // Coauthor
+            // 
+            this.Coauthor.AccessibleName = "Coauthor";
+            this.Coauthor.Location = new System.Drawing.Point(28, 275);
+            this.Coauthor.Name = "Coauthor";
+            this.Coauthor.ReadOnly = true;
+            this.Coauthor.Size = new System.Drawing.Size(100, 20);
+            this.Coauthor.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(26, 259);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Coauthor";
+            // 
+            // Category
+            // 
+            this.Category.AccessibleName = "Category";
+            this.Category.Location = new System.Drawing.Point(29, 343);
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            this.Category.Size = new System.Drawing.Size(100, 20);
+            this.Category.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(27, 327);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Category";
+            // 
+            // Price
+            // 
+            this.Price.AccessibleName = "Price";
+            this.Price.Location = new System.Drawing.Point(30, 422);
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Size = new System.Drawing.Size(100, 20);
+            this.Price.TabIndex = 11;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(28, 406);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(31, 13);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Price";
+            // 
+            // Update
+            // 
+            this.Update.AccessibleName = "Update";
+            this.Update.Location = new System.Drawing.Point(29, 466);
+            this.Update.Name = "Update";
+            this.Update.Size = new System.Drawing.Size(75, 23);
+            this.Update.TabIndex = 12;
+            this.Update.Text = "Update";
+            this.Update.UseVisualStyleBackColor = true;
+            this.Update.Visible = false;
+            this.Update.Click += new System.EventHandler(this.Update_Click);
+            // 
+            // CancelUpdateOwner
+            // 
+            this.CancelUpdateOwner.AccessibleName = "CancelUpdateOwner";
+            this.CancelUpdateOwner.Location = new System.Drawing.Point(389, 368);
+            this.CancelUpdateOwner.Name = "CancelUpdateOwner";
+            this.CancelUpdateOwner.Size = new System.Drawing.Size(75, 23);
+            this.CancelUpdateOwner.TabIndex = 40;
+            this.CancelUpdateOwner.Text = "Cancel";
+            this.CancelUpdateOwner.UseVisualStyleBackColor = true;
+            this.CancelUpdateOwner.Click += new System.EventHandler(this.CancelUpdateOwner_Click);
+            // 
             // PersonalLibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 497);
-            this.Controls.Add(this.InvalidENumber);
-            this.Controls.Add(this.InvalidZip);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.InvalidState);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.InvalidCity);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.UserId);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.InvalidAddress);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.InvalidPhone);
-            this.Controls.Add(this.PhoneNumberInput);
-            this.Controls.Add(this.PhoneNumber);
-            this.Controls.Add(this.InvalidLastName);
-            this.Controls.Add(this.LastName);
-            this.Controls.Add(this.LastNameInput);
-            this.Controls.Add(this.InvalidFirstName);
-            this.Controls.Add(this.FirstName);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.InvalidLabel);
+            this.ClientSize = new System.Drawing.Size(779, 555);
+            this.Controls.Add(this.BooksInLibrary);
+            this.Controls.Add(this.LibraryOwnerBox);
+            this.Controls.Add(this.BookDetails);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "PersonalLibraryForm";
@@ -592,6 +768,10 @@ namespace PersonalLibraryGUI
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.LibraryOwnerBox.ResumeLayout(false);
+            this.LibraryOwnerBox.PerformLayout();
+            this.BookDetails.ResumeLayout(false);
+            this.BookDetails.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -600,12 +780,12 @@ namespace PersonalLibraryGUI
         /// <summary>
         /// Defines the button1.
         /// </summary>
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button UpdateOwner;
 
         /// <summary>
         /// Defines the textBox1.
         /// </summary>
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox EmailInput;
 
         /// <summary>
         /// Defines the label1.
@@ -705,7 +885,7 @@ namespace PersonalLibraryGUI
         /// <summary>
         /// Defines the FirstName.
         /// </summary>
-        private System.Windows.Forms.TextBox FirstName;
+        private System.Windows.Forms.TextBox FirstNameInput;
 
         /// <summary>
         /// Defines the InvalidFirstName.
@@ -750,7 +930,7 @@ namespace PersonalLibraryGUI
         /// <summary>
         /// Defines the textBox2.
         /// </summary>
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox CityInput;
 
         /// <summary>
         /// Defines the label4.
@@ -765,12 +945,12 @@ namespace PersonalLibraryGUI
         /// <summary>
         /// Defines the UserId.
         /// </summary>
-        private System.Windows.Forms.TextBox UserId;
+        private System.Windows.Forms.TextBox UserIdInput;
 
         /// <summary>
         /// Defines the textBox6.
         /// </summary>
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox AddressLineTwoInput;
 
         /// <summary>
         /// Defines the label11.
@@ -790,7 +970,7 @@ namespace PersonalLibraryGUI
         /// <summary>
         /// Defines the textBox7.
         /// </summary>
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox StreetAddressLineOneInput;
 
         /// <summary>
         /// Defines the InvalidState.
@@ -800,7 +980,7 @@ namespace PersonalLibraryGUI
         /// <summary>
         /// Defines the textBox5.
         /// </summary>
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox StateInput;
 
         /// <summary>
         /// Defines the label10.
@@ -815,7 +995,7 @@ namespace PersonalLibraryGUI
         /// <summary>
         /// Defines the textBox8.
         /// </summary>
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox ZipInput;
 
         /// <summary>
         /// Defines the label15.
@@ -826,5 +1006,22 @@ namespace PersonalLibraryGUI
         /// Defines the InvalidENumber.
         /// </summary>
         private System.Windows.Forms.Label InvalidENumber;
+        private System.Windows.Forms.GroupBox LibraryOwnerBox;
+        private System.Windows.Forms.GroupBox BookDetails;
+        private System.Windows.Forms.ListBox BooksInLibrary;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox BookType;
+        private System.Windows.Forms.TextBox Price;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox Category;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox Coauthor;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox Author;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox Title;
+        private System.Windows.Forms.Button Update;
+        private System.Windows.Forms.Button CancelUpdateOwner;
     }
 }

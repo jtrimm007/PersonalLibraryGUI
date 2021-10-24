@@ -141,6 +141,41 @@ namespace LibraryManagement
         /// </summary>
         public Person()
         {
+
+        }
+        public Person(string name, string streetAddress, string city, string state, string zip, string studentId, string phoneNumber, string email)
+        {
+            this.FirstName = SplitName(name)[0];
+            this.LastName = SplitName(name)[1];
+            this.StreetAddressLineOne = streetAddress;
+            this.City = city;
+            this.State = state;
+            this.Zip = zip;
+            this.Id = studentId;
+            this.PhoneNumber = phoneNumber;
+            this.Email = email;
+        }
+
+        private string[] SplitName(string name)
+        {
+            if (name != null || name != string.Empty)
+            {
+                var split = name.Split(' ');
+
+                if(split.Length == 2)
+                {
+                    return split;
+                }
+
+                if(split.Length == 3)
+                {
+                    var firstAndLastOnly = new string[] {split[0], split[2]};
+                    return firstAndLastOnly;
+                }
+
+            }
+
+            return null;
         }
     }
 }

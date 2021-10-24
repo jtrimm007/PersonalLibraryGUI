@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -107,6 +108,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TrimYard Black Background logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LibraryData\library2.txt" />
+    <Content Include="LibraryData\library.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

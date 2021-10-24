@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +45,7 @@
     <Compile Include="Book.cs" />
     <Compile Include="Enumerations\BookTypes.cs" />
     <Compile Include="Enumerations\Categories.cs" />
+    <Compile Include="FileManager.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonalLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

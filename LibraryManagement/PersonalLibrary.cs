@@ -25,7 +25,7 @@ namespace LibraryManagement
         /// <summary>
         /// Private <see cref="List{Book}"/>
         /// </summary>
-        private List<Book> Books { get; set; } = new List<Book>();
+        private List<Book> books { get; set; } = new List<Book>();
 
         /// <summary>
         /// Gets or sets the Library Owner <see cref="Person"/>.
@@ -37,13 +37,13 @@ namespace LibraryManagement
         /// </summary>
         public int Count
         {
-            get { return Books.Count(); }
+            get { return books.Count(); }
         }
 
         /// <summary>
         /// Gets the path of the library save file
         /// </summary>
-        public string Path { get; }
+        public string Path { get { return FileManager.OpenedFilePath; } }
 
         /// <summary>
         /// Gets the file name of the library save file
@@ -76,15 +76,15 @@ namespace LibraryManagement
                 {
                     throw new ArgumentException($"{position} is less than 0.");
                 }
-                else if (position >= Books.Count)
+                else if (position >= books.Count)
                 {
-                    throw new ArgumentException($"{position} is greater than or equal to the list count of {Books.Count}");
+                    throw new ArgumentException($"{position} is greater than or equal to the list count of {books.Count}");
                 }
-                return Books[position];
+                return books[position];
             }
             set
             {
-                Books[position] = value;
+                books[position] = value;
 
             }
         }
@@ -98,7 +98,7 @@ namespace LibraryManagement
         {
             get
             {
-                foreach (Book book in Books)
+                foreach (Book book in books)
                 {
                     if (title == book.Title)
                     {
@@ -111,12 +111,12 @@ namespace LibraryManagement
 
             set
             {
-                foreach (Book book in Books)
+                foreach (Book book in books)
                 {
                     if (title == book.Title)
                     {
-                        Books.Remove(book);
-                        Books.Add(value);
+                        books.Remove(book);
+                        books.Add(value);
                     }
                 }
             }
@@ -127,8 +127,8 @@ namespace LibraryManagement
         /// <returns>The <see cref="List{Book}"/>.</returns>
         public List<Book> SortBooksByTitle()
         {
-            Books.Sort();
-            return Books;
+            books.Sort();
+            return books;
         }
 
         /// <summary>
@@ -138,14 +138,30 @@ namespace LibraryManagement
         /// <returns>An updated <see cref="List{Book}"/>.</returns>
         public List<Book> Edit(Book book)
         {
-            var check = Books.FirstOrDefault(x => x.Title == book.Title);
+            var check = books.FirstOrDefault(x => x.Title == book.Title);
 
             if (check != null)
             {
                 this[book.Title] = book;
             }
 
-            return Books;
+            return books;
+        }
+
+        public List<Book> GetBooksList()
+        {
+            return books;
+        }
+
+        public List<string> GetBooksListOfTitles()
+        {
+            List<string> booksTitles = new List<string>();
+            foreach(var book in books)
+            {
+                booksTitles.Add(book.Title);
+            }
+
+            return booksTitles;
         }
 
         /// <summary>
@@ -155,7 +171,7 @@ namespace LibraryManagement
         /// <returns>A list of all the books associated with the author <see cref="List{Book}"/>.</returns>
         public List<Book> RetrieveByAuthor(string author)
         {
-            return (List<Book>)Books.Where(x => x.Author == author || x.Coauthor == author);
+            return (List<Book>)books.Where(x => x.Author == author || x.Coauthor == author);
         }
 
         /// <summary>
@@ -166,7 +182,7 @@ namespace LibraryManagement
         /// <returns>The updated <see cref="PersonalLibrary"/> object.</returns>
         public static PersonalLibrary operator +(PersonalLibrary library, Book book)
         {
-            library.Books.Add(book);
+            library.books.Add(book);
             return library;
         }
 
@@ -178,8 +194,68 @@ namespace LibraryManagement
         /// <returns>The updated <see cref="PersonalLibrary"/> object.</returns>
         public static PersonalLibrary operator -(PersonalLibrary library, Book book)
         {
-            library.Books.Remove(book);
+            library.books.Remove(book);
             return library;
+        }
+        public void SetOwnerAndBooksList()
+        {
+            SetOwner();
+            PopulateListofBooksFromTextString();
+
+        }
+        
+        private void SetOwner()
+        {
+            if (FileManager.TextFromFile != null || FileManager.TextFromFile != String.Empty)
+            {
+                var split = FileManager.TextFromFile.Split('\n');
+                var getOwnerInfo = SplitLibraryOwnerRow(split[0]);
+
+                LibraryOwner = CreateNewPerson(getOwnerInfo);
+            }
+        }
+        private Person CreateNewPerson(string[] ownerInfo)
+        {
+            return new Person(ownerInfo[0], ownerInfo[1], ownerInfo[2], ownerInfo[3], ownerInfo[4], ownerInfo[5], ownerInfo[6], ownerInfo[7].Replace("\r", ""));
+        }
+        private string[] SplitLibraryOwnerRow(string ownerString)
+        {
+            return ownerString.Split(FileManager.GlobalDelimiter);
+        }
+        private void PopulateListofBooksFromTextString()
+        {
+            if(FileManager.TextFromFile != null || FileManager.TextFromFile != String.Empty)
+            {
+                var split = FileManager.TextFromFile.Split('\n');
+
+                // Add the books from the text file to the Books list.
+                SetListOfBooks(split);
+            }
+        }
+
+        private void SetListOfBooks(string[] splitArray)
+        {
+            //Skip the first row because that is the library owners information.
+            for(var i = 1; i < splitArray.Length; i++)
+            {
+                if (splitArray[i] == String.Empty)
+                    return;
+
+                books.Add(CreateBookFromDelimitedRow(splitArray[i]));
+            }
+        }
+
+        private Book CreateBookFromDelimitedRow(string row)
+        {
+
+            var split = row.Split(FileManager.GlobalDelimiter);
+
+            //if (split[5] == "0")
+            //    split[5] = "0.00";
+
+            Decimal priceHolder;
+            Decimal.TryParse(split[5], out priceHolder);
+            return new Book(split[0], split[1], split[2], split[3], split[4], priceHolder);
         }
     }
 }

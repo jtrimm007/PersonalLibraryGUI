@@ -237,5 +237,11 @@ namespace PersonalLibraryGUI
             else
                 InvalidAddress.Visible = false;
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox2 aboutBox2 = new AboutBox2();
+            aboutBox2.Show(this);
+        }
     }
 }

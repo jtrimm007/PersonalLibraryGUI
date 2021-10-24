@@ -1,16 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	Solution/Project:  Personal Library GUI
+//	File Name:         AboutBox2.cs
+//	Description:       YOUR DESCRIPTION HERE
+//	Course:            CSCI 2210 - Data Structures	
+//	Author:            Joshua Trimm, trimmj@etsu.edu
+//	Created:           10/24/2021
+//	Copyright:         Joshua Trimm, 2021
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace PersonalLibraryGUI
 {
-    partial class AboutBox2 : Form
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Drawing;
+    using System.Linq;
+    using System.Reflection;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+
+    /// <summary>
+    /// Defines the <see cref="AboutBox2" />.
+    /// </summary>
+    internal partial class AboutBox2 : Form
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AboutBox2"/> class.
+        /// </summary>
         public AboutBox2()
         {
             InitializeComponent();
@@ -22,8 +40,9 @@ namespace PersonalLibraryGUI
             this.textBoxDescription.Text = AssemblyDescription;
         }
 
-        #region Assembly Attribute Accessors
-
+        /// <summary>
+        /// Gets the AssemblyTitle.
+        /// </summary>
         public string AssemblyTitle
         {
             get
@@ -41,6 +60,9 @@ namespace PersonalLibraryGUI
             }
         }
 
+        /// <summary>
+        /// Gets the AssemblyVersion.
+        /// </summary>
         public string AssemblyVersion
         {
             get
@@ -49,6 +71,9 @@ namespace PersonalLibraryGUI
             }
         }
 
+        /// <summary>
+        /// Gets the AssemblyDescription.
+        /// </summary>
         public string AssemblyDescription
         {
             get
@@ -62,6 +87,9 @@ namespace PersonalLibraryGUI
             }
         }
 
+        /// <summary>
+        /// Gets the AssemblyProduct.
+        /// </summary>
         public string AssemblyProduct
         {
             get
@@ -75,6 +103,9 @@ namespace PersonalLibraryGUI
             }
         }
 
+        /// <summary>
+        /// Gets the AssemblyCopyright.
+        /// </summary>
         public string AssemblyCopyright
         {
             get
@@ -88,6 +119,9 @@ namespace PersonalLibraryGUI
             }
         }
 
+        /// <summary>
+        /// Gets the AssemblyCompany.
+        /// </summary>
         public string AssemblyCompany
         {
             get
@@ -100,6 +134,5 @@ namespace PersonalLibraryGUI
                 return ((AssemblyCompanyAttribute)attributes[0]).Company;
             }
         }
-        #endregion
     }
 }

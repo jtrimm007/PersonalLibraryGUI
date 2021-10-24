@@ -1,9 +1,8 @@
 ﻿///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //	Solution/Project:  Personal Library GUI
-//	Library Purpose:   To add a layer of abstraction to implement DRY programing principles.
 //	File Name:         Person.cs
-//	Description:       YOUR DESCRIPTION HERE
+//	Description:       Manager the person object
 //	Course:            CSCI 2210 - Data Structures	
 //	Author:            Joshua Trimm, trimmj@etsu.edu
 //	Created:           10/16/2021
@@ -14,7 +13,7 @@
 namespace LibraryManagement
 {
     /// <summary>
-    /// Defines the <see cref="Person" />.
+    /// Defines the <see cref="Person" />. The <see cref="Person"/> class extends the <see cref="RegexLibraryHelper"/> class.
     /// </summary>
     public class Person : RegexLibraryHelper
     {
@@ -49,7 +48,7 @@ namespace LibraryManagement
         public string State { get; set; }
 
         /// <summary>
-        /// Gets or sets the Zip.
+        /// Gets or sets the Zip with regex validation.
         /// </summary>
         public string Zip
         {
@@ -66,12 +65,12 @@ namespace LibraryManagement
         }
 
         /// <summary>
-        /// Defines the zip.
+        /// Private zip.
         /// </summary>
         private string zip;
 
         /// <summary>
-        /// Gets or sets the Id.
+        /// Gets or sets the Id with regex validation.
         /// </summary>
         public string Id
         {
@@ -88,12 +87,12 @@ namespace LibraryManagement
         }
 
         /// <summary>
-        /// Defines the id.
+        /// Private id.
         /// </summary>
         private string id;// ETSU ID Number
 
         /// <summary>
-        /// Gets or sets the PhoneNumber.
+        /// Gets or sets the PhoneNumber with regex validation.
         /// </summary>
         public string PhoneNumber
         {
@@ -110,12 +109,12 @@ namespace LibraryManagement
         }
 
         /// <summary>
-        /// Defines the phoneNumber.
+        /// Private phoneNumber.
         /// </summary>
         private string phoneNumber;
 
         /// <summary>
-        /// Gets or sets the Email.
+        /// Gets or sets the Email with regex validation.
         /// </summary>
         public string Email
         {
@@ -132,7 +131,7 @@ namespace LibraryManagement
         }
 
         /// <summary>
-        /// Defines the email.
+        /// Private email.
         /// </summary>
         private string email;
 
@@ -141,12 +140,23 @@ namespace LibraryManagement
         /// </summary>
         public Person()
         {
-
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Person"/> class.
+        /// </summary>
+        /// <param name="name">The name<see cref="string"/>.</param>
+        /// <param name="streetAddress">The streetAddress<see cref="string"/>.</param>
+        /// <param name="city">The city<see cref="string"/>.</param>
+        /// <param name="state">The state<see cref="string"/>.</param>
+        /// <param name="zip">The zip<see cref="string"/>.</param>
+        /// <param name="studentId">The studentId<see cref="string"/>.</param>
+        /// <param name="phoneNumber">The phoneNumber<see cref="string"/>.</param>
+        /// <param name="email">The email<see cref="string"/>.</param>
         public Person(string name, string streetAddress, string city, string state, string zip, string studentId, string phoneNumber, string email)
         {
-            this.FirstName = SplitName(name)[0];
-            this.LastName = SplitName(name)[1];
+            this.FirstName = SplitName(name)[0]; // get and set the first name of the library owner
+            this.LastName = SplitName(name)[1]; // get and set the last name of the library owner
             this.StreetAddressLineOne = streetAddress;
             this.City = city;
             this.State = state;
@@ -156,20 +166,25 @@ namespace LibraryManagement
             this.Email = email;
         }
 
+        /// <summary>
+        /// The SplitName method separates the name into first and last.
+        /// </summary>
+        /// <param name="name">The name<see cref="string"/>.</param>
+        /// <returns>The first and last name in a <see cref="string[]"/>. First Name is index 0 and Last Name is index 1.</returns>
         private string[] SplitName(string name)
         {
-            if (name != null || name != string.Empty)
+            if (name != null || name != string.Empty) // make sure the name isn't empty or null before proceeding.
             {
-                var split = name.Split(' ');
+                var split = name.Split(' '); // split the name
 
-                if(split.Length == 2)
+                if (split.Length == 2) // if the array is only two in length, there is only a First and Last name present. 
                 {
                     return split;
                 }
 
-                if(split.Length == 3)
+                if (split.Length == 3) // if there was a middle name, get the 0 and index to set the first and last name.
                 {
-                    var firstAndLastOnly = new string[] {split[0], split[2]};
+                    var firstAndLastOnly = new string[] { split[0], split[2] };
                     return firstAndLastOnly;
                 }
 

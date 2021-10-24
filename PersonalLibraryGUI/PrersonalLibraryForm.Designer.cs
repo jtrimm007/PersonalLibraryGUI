@@ -2,9 +2,9 @@
 //
 //	Solution/Project:  Personal Library GUI
 //	File Name:         PrersonalLibraryForm.Designer.cs
-//	Description:       YOUR DESCRIPTION HERE
+//	Description:       Logic to display the Personal Library Form
 //	Course:            CSCI 2210 - Data Structures	
-//	Author:           Joshua Trimm, trimmj@etsu.edu
+//	Author:            Joshua Trimm, trimmj@etsu.edu
 //	Created:           10/16/2021
 //	Copyright:         Joshua Trimm, 2021
 //
@@ -59,7 +59,10 @@ namespace PersonalLibraryGUI
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.SortStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.SaveStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.NumberOfBooksStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.DateTimeStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.InvalidLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.FirstNameInput = new System.Windows.Forms.TextBox();
@@ -88,32 +91,43 @@ namespace PersonalLibraryGUI
             this.label15 = new System.Windows.Forms.Label();
             this.InvalidENumber = new System.Windows.Forms.Label();
             this.LibraryOwnerBox = new System.Windows.Forms.GroupBox();
+            this.CancelUpdateOwner = new System.Windows.Forms.Button();
             this.BookDetails = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.BooksInLibrary = new System.Windows.Forms.ListBox();
-            this.BookType = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.Title = new System.Windows.Forms.TextBox();
-            this.Author = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.Coauthor = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.Category = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.AddBookButton = new System.Windows.Forms.Button();
+            this.Update = new System.Windows.Forms.Button();
             this.Price = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.Update = new System.Windows.Forms.Button();
-            this.CancelUpdateOwner = new System.Windows.Forms.Button();
+            this.Category = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Coauthor = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Author = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Title = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.BookType = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BooksInLibrary = new System.Windows.Forms.ListBox();
+            this.LibraryOwnerBottomBox = new System.Windows.Forms.GroupBox();
+            this.LibraryOwnerEmailInput = new System.Windows.Forms.TextBox();
+            this.OwnerEmailLabel = new System.Windows.Forms.Label();
+            this.LibraryOwnerENumberInput = new System.Windows.Forms.TextBox();
+            this.ENumberLabel = new System.Windows.Forms.Label();
+            this.LibraryOwnerPhoneInput = new System.Windows.Forms.TextBox();
+            this.PhoneNumberLabel = new System.Windows.Forms.Label();
+            this.LibraryOwnerNameInput = new System.Windows.Forms.TextBox();
+            this.LibraryOwnerNameLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.LibraryOwnerBox.SuspendLayout();
             this.BookDetails.SuspendLayout();
+            this.LibraryOwnerBottomBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // UpdateOwner
             // 
             this.UpdateOwner.AccessibleName = "UpdateOwner";
-            this.UpdateOwner.Location = new System.Drawing.Point(280, 368);
+            this.UpdateOwner.Location = new System.Drawing.Point(302, 328);
             this.UpdateOwner.Name = "UpdateOwner";
             this.UpdateOwner.Size = new System.Drawing.Size(75, 23);
             this.UpdateOwner.TabIndex = 0;
@@ -128,7 +142,6 @@ namespace PersonalLibraryGUI
             this.EmailInput.Name = "EmailInput";
             this.EmailInput.Size = new System.Drawing.Size(121, 20);
             this.EmailInput.TabIndex = 1;
-            this.EmailInput.TextChanged += new System.EventHandler(this.EmailInput_TextBoxChange);
             this.EmailInput.Leave += new System.EventHandler(this.EmailInput_Leave);
             // 
             // label1
@@ -143,13 +156,15 @@ namespace PersonalLibraryGUI
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.modifyToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(779, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(173, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -184,18 +199,21 @@ namespace PersonalLibraryGUI
             this.sortToolStripMenuItem.Name = "sortToolStripMenuItem";
             this.sortToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
             this.sortToolStripMenuItem.Text = "Sort";
+            this.sortToolStripMenuItem.Click += new System.EventHandler(this.sortToolStripMenuItem_Click);
             // 
             // showAllByAuthorToolStripMenuItem
             // 
             this.showAllByAuthorToolStripMenuItem.Name = "showAllByAuthorToolStripMenuItem";
             this.showAllByAuthorToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
             this.showAllByAuthorToolStripMenuItem.Text = "Show All by Author";
+            this.showAllByAuthorToolStripMenuItem.Click += new System.EventHandler(this.showAllByAuthorToolStripMenuItem_Click);
             // 
             // quiteToolStripMenuItem
             // 
             this.quiteToolStripMenuItem.Name = "quiteToolStripMenuItem";
             this.quiteToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
             this.quiteToolStripMenuItem.Text = "Quite";
+            this.quiteToolStripMenuItem.Click += new System.EventHandler(this.quiteToolStripMenuItem_Click);
             // 
             // modifyToolStripMenuItem
             // 
@@ -211,26 +229,28 @@ namespace PersonalLibraryGUI
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
             this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
             this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // updateOwnerToolStripMenuItem
             // 
             this.updateOwnerToolStripMenuItem.Name = "updateOwnerToolStripMenuItem";
-            this.updateOwnerToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.updateOwnerToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
             this.updateOwnerToolStripMenuItem.Text = "Update Owner";
             this.updateOwnerToolStripMenuItem.Click += new System.EventHandler(this.updateOwnerToolStripMenuItem_Click);
             // 
@@ -252,18 +272,42 @@ namespace PersonalLibraryGUI
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 530);
+            this.SortStatus,
+            this.SaveStatus,
+            this.NumberOfBooksStatus,
+            this.DateTimeStatus});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 556);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(779, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(789, 25);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // SortStatus
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(151, 20);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.SortStatus.AccessibleName = "SortStatus";
+            this.SortStatus.Name = "SortStatus";
+            this.SortStatus.Size = new System.Drawing.Size(0, 20);
+            // 
+            // SaveStatus
+            // 
+            this.SaveStatus.AccessibleName = "SaveStatus";
+            this.SaveStatus.Name = "SaveStatus";
+            this.SaveStatus.Size = new System.Drawing.Size(144, 20);
+            this.SaveStatus.Text = "Save Status Unsaved";
+            // 
+            // NumberOfBooksStatus
+            // 
+            this.NumberOfBooksStatus.AccessibleName = "NumberOfBooksStatus";
+            this.NumberOfBooksStatus.Name = "NumberOfBooksStatus";
+            this.NumberOfBooksStatus.Size = new System.Drawing.Size(137, 20);
+            this.NumberOfBooksStatus.Text = "Number of Books 0";
+            // 
+            // DateTimeStatus
+            // 
+            this.DateTimeStatus.AccessibleName = "DateTimeStatus";
+            this.DateTimeStatus.Name = "DateTimeStatus";
+            this.DateTimeStatus.Size = new System.Drawing.Size(93, 20);
+            this.DateTimeStatus.Text = "Current Date";
             // 
             // InvalidLabel
             // 
@@ -546,6 +590,7 @@ namespace PersonalLibraryGUI
             // LibraryOwnerBox
             // 
             this.LibraryOwnerBox.AccessibleName = "LibraryOwnerBox";
+            this.LibraryOwnerBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.LibraryOwnerBox.Controls.Add(this.CancelUpdateOwner);
             this.LibraryOwnerBox.Controls.Add(this.FirstNameInput);
             this.LibraryOwnerBox.Controls.Add(this.InvalidENumber);
@@ -577,18 +622,30 @@ namespace PersonalLibraryGUI
             this.LibraryOwnerBox.Controls.Add(this.label11);
             this.LibraryOwnerBox.Controls.Add(this.label13);
             this.LibraryOwnerBox.Controls.Add(this.InvalidAddress);
-            this.LibraryOwnerBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.LibraryOwnerBox.Location = new System.Drawing.Point(283, 28);
+            this.LibraryOwnerBox.Location = new System.Drawing.Point(234, 28);
             this.LibraryOwnerBox.Name = "LibraryOwnerBox";
-            this.LibraryOwnerBox.Size = new System.Drawing.Size(496, 502);
+            this.LibraryOwnerBox.Size = new System.Drawing.Size(548, 438);
             this.LibraryOwnerBox.TabIndex = 38;
             this.LibraryOwnerBox.TabStop = false;
             this.LibraryOwnerBox.Text = "Library Owner";
             this.LibraryOwnerBox.Visible = false;
             // 
+            // CancelUpdateOwner
+            // 
+            this.CancelUpdateOwner.AccessibleName = "CancelUpdateOwner";
+            this.CancelUpdateOwner.Location = new System.Drawing.Point(402, 328);
+            this.CancelUpdateOwner.Name = "CancelUpdateOwner";
+            this.CancelUpdateOwner.Size = new System.Drawing.Size(75, 23);
+            this.CancelUpdateOwner.TabIndex = 40;
+            this.CancelUpdateOwner.Text = "Cancel";
+            this.CancelUpdateOwner.UseVisualStyleBackColor = true;
+            this.CancelUpdateOwner.Click += new System.EventHandler(this.CancelUpdateOwner_Click);
+            // 
             // BookDetails
             // 
             this.BookDetails.AccessibleName = "BookDetails";
+            this.BookDetails.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.BookDetails.Controls.Add(this.AddBookButton);
             this.BookDetails.Controls.Add(this.Update);
             this.BookDetails.Controls.Add(this.Price);
             this.BookDetails.Controls.Add(this.label12);
@@ -602,77 +659,72 @@ namespace PersonalLibraryGUI
             this.BookDetails.Controls.Add(this.label5);
             this.BookDetails.Controls.Add(this.BookType);
             this.BookDetails.Controls.Add(this.label3);
-            this.BookDetails.Location = new System.Drawing.Point(283, 28);
+            this.BookDetails.Location = new System.Drawing.Point(236, 28);
             this.BookDetails.Name = "BookDetails";
-            this.BookDetails.Size = new System.Drawing.Size(496, 499);
+            this.BookDetails.Size = new System.Drawing.Size(546, 417);
             this.BookDetails.TabIndex = 39;
             this.BookDetails.TabStop = false;
             this.BookDetails.Text = "Book Details";
             // 
-            // label3
+            // AddBookButton
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 44);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Book Type";
+            this.AddBookButton.AccessibleName = "AddBookButton";
+            this.AddBookButton.Location = new System.Drawing.Point(389, 275);
+            this.AddBookButton.Name = "AddBookButton";
+            this.AddBookButton.Size = new System.Drawing.Size(75, 23);
+            this.AddBookButton.TabIndex = 13;
+            this.AddBookButton.Text = "Add Book";
+            this.AddBookButton.UseVisualStyleBackColor = true;
+            this.AddBookButton.Visible = false;
+            this.AddBookButton.Click += new System.EventHandler(this.AddBookButton_Click);
             // 
-            // BooksInLibrary
+            // Update
             // 
-            this.BooksInLibrary.AccessibleName = "BooksInLibrary";
-            this.BooksInLibrary.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BooksInLibrary.FormattingEnabled = true;
-            this.BooksInLibrary.Location = new System.Drawing.Point(0, 28);
-            this.BooksInLibrary.Name = "BooksInLibrary";
-            this.BooksInLibrary.Size = new System.Drawing.Size(225, 502);
-            this.BooksInLibrary.TabIndex = 40;
-            this.BooksInLibrary.Click += new System.EventHandler(this.BooksInLibrary_Click);
+            this.Update.AccessibleName = "Update";
+            this.Update.Location = new System.Drawing.Point(387, 275);
+            this.Update.Name = "Update";
+            this.Update.Size = new System.Drawing.Size(75, 23);
+            this.Update.TabIndex = 12;
+            this.Update.Text = "Update";
+            this.Update.UseVisualStyleBackColor = true;
+            this.Update.Visible = false;
+            this.Update.Click += new System.EventHandler(this.Update_Click);
             // 
-            // BookType
+            // Price
             // 
-            this.BookType.AccessibleName = "BookType";
-            this.BookType.Location = new System.Drawing.Point(27, 67);
-            this.BookType.Name = "BookType";
-            this.BookType.ReadOnly = true;
-            this.BookType.Size = new System.Drawing.Size(100, 20);
-            this.BookType.TabIndex = 1;
+            this.Price.AccessibleName = "Price";
+            this.Price.Location = new System.Drawing.Point(171, 145);
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Size = new System.Drawing.Size(100, 20);
+            this.Price.TabIndex = 11;
             // 
-            // label5
+            // label12
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 122);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Title";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(169, 129);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(31, 13);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Price";
             // 
-            // Title
+            // Category
             // 
-            this.Title.AccessibleName = "Title";
-            this.Title.Location = new System.Drawing.Point(26, 138);
-            this.Title.Name = "Title";
-            this.Title.ReadOnly = true;
-            this.Title.Size = new System.Drawing.Size(100, 20);
-            this.Title.TabIndex = 3;
+            this.Category.AccessibleName = "Category";
+            this.Category.Location = new System.Drawing.Point(170, 66);
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            this.Category.Size = new System.Drawing.Size(100, 20);
+            this.Category.TabIndex = 9;
             // 
-            // Author
+            // label9
             // 
-            this.Author.AccessibleName = "Author";
-            this.Author.Location = new System.Drawing.Point(27, 206);
-            this.Author.Name = "Author";
-            this.Author.ReadOnly = true;
-            this.Author.Size = new System.Drawing.Size(100, 20);
-            this.Author.TabIndex = 5;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(25, 190);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Author";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(168, 50);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Category";
             // 
             // Coauthor
             // 
@@ -692,75 +744,177 @@ namespace PersonalLibraryGUI
             this.label7.TabIndex = 6;
             this.label7.Text = "Coauthor";
             // 
-            // Category
+            // Author
             // 
-            this.Category.AccessibleName = "Category";
-            this.Category.Location = new System.Drawing.Point(29, 343);
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
-            this.Category.Size = new System.Drawing.Size(100, 20);
-            this.Category.TabIndex = 9;
+            this.Author.AccessibleName = "Author";
+            this.Author.Location = new System.Drawing.Point(27, 206);
+            this.Author.Name = "Author";
+            this.Author.ReadOnly = true;
+            this.Author.Size = new System.Drawing.Size(100, 20);
+            this.Author.TabIndex = 5;
             // 
-            // label9
+            // label6
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(27, 327);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 13);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Category";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(25, 190);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Author";
             // 
-            // Price
+            // Title
             // 
-            this.Price.AccessibleName = "Price";
-            this.Price.Location = new System.Drawing.Point(30, 422);
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Size = new System.Drawing.Size(100, 20);
-            this.Price.TabIndex = 11;
+            this.Title.AccessibleName = "Title";
+            this.Title.Location = new System.Drawing.Point(26, 138);
+            this.Title.Name = "Title";
+            this.Title.ReadOnly = true;
+            this.Title.Size = new System.Drawing.Size(100, 20);
+            this.Title.TabIndex = 3;
             // 
-            // label12
+            // label5
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(28, 406);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(31, 13);
-            this.label12.TabIndex = 10;
-            this.label12.Text = "Price";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(24, 122);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Title";
             // 
-            // Update
+            // BookType
             // 
-            this.Update.AccessibleName = "Update";
-            this.Update.Location = new System.Drawing.Point(29, 466);
-            this.Update.Name = "Update";
-            this.Update.Size = new System.Drawing.Size(75, 23);
-            this.Update.TabIndex = 12;
-            this.Update.Text = "Update";
-            this.Update.UseVisualStyleBackColor = true;
-            this.Update.Visible = false;
-            this.Update.Click += new System.EventHandler(this.Update_Click);
+            this.BookType.AccessibleName = "BookType";
+            this.BookType.Location = new System.Drawing.Point(27, 67);
+            this.BookType.Name = "BookType";
+            this.BookType.ReadOnly = true;
+            this.BookType.Size = new System.Drawing.Size(100, 20);
+            this.BookType.TabIndex = 1;
             // 
-            // CancelUpdateOwner
+            // label3
             // 
-            this.CancelUpdateOwner.AccessibleName = "CancelUpdateOwner";
-            this.CancelUpdateOwner.Location = new System.Drawing.Point(389, 368);
-            this.CancelUpdateOwner.Name = "CancelUpdateOwner";
-            this.CancelUpdateOwner.Size = new System.Drawing.Size(75, 23);
-            this.CancelUpdateOwner.TabIndex = 40;
-            this.CancelUpdateOwner.Text = "Cancel";
-            this.CancelUpdateOwner.UseVisualStyleBackColor = true;
-            this.CancelUpdateOwner.Click += new System.EventHandler(this.CancelUpdateOwner_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Book Type";
+            // 
+            // BooksInLibrary
+            // 
+            this.BooksInLibrary.AccessibleName = "BooksInLibrary";
+            this.BooksInLibrary.FormattingEnabled = true;
+            this.BooksInLibrary.Location = new System.Drawing.Point(0, 28);
+            this.BooksInLibrary.Name = "BooksInLibrary";
+            this.BooksInLibrary.Size = new System.Drawing.Size(225, 524);
+            this.BooksInLibrary.TabIndex = 40;
+            this.BooksInLibrary.Click += new System.EventHandler(this.BooksInLibrary_Click);
+            // 
+            // LibraryOwnerBottomBox
+            // 
+            this.LibraryOwnerBottomBox.AccessibleName = "LibraryOwnerBottomBox";
+            this.LibraryOwnerBottomBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LibraryOwnerBottomBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.LibraryOwnerBottomBox.Controls.Add(this.LibraryOwnerEmailInput);
+            this.LibraryOwnerBottomBox.Controls.Add(this.OwnerEmailLabel);
+            this.LibraryOwnerBottomBox.Controls.Add(this.LibraryOwnerENumberInput);
+            this.LibraryOwnerBottomBox.Controls.Add(this.ENumberLabel);
+            this.LibraryOwnerBottomBox.Controls.Add(this.LibraryOwnerPhoneInput);
+            this.LibraryOwnerBottomBox.Controls.Add(this.PhoneNumberLabel);
+            this.LibraryOwnerBottomBox.Controls.Add(this.LibraryOwnerNameInput);
+            this.LibraryOwnerBottomBox.Controls.Add(this.LibraryOwnerNameLabel);
+            this.LibraryOwnerBottomBox.Location = new System.Drawing.Point(236, 453);
+            this.LibraryOwnerBottomBox.Name = "LibraryOwnerBottomBox";
+            this.LibraryOwnerBottomBox.Size = new System.Drawing.Size(547, 100);
+            this.LibraryOwnerBottomBox.TabIndex = 41;
+            this.LibraryOwnerBottomBox.TabStop = false;
+            this.LibraryOwnerBottomBox.Text = "Library Owner Info";
+            // 
+            // LibraryOwnerEmailInput
+            // 
+            this.LibraryOwnerEmailInput.AccessibleName = "LibraryOwnerEmailInput";
+            this.LibraryOwnerEmailInput.Location = new System.Drawing.Point(412, 62);
+            this.LibraryOwnerEmailInput.Name = "LibraryOwnerEmailInput";
+            this.LibraryOwnerEmailInput.ReadOnly = true;
+            this.LibraryOwnerEmailInput.Size = new System.Drawing.Size(115, 20);
+            this.LibraryOwnerEmailInput.TabIndex = 7;
+            // 
+            // OwnerEmailLabel
+            // 
+            this.OwnerEmailLabel.AccessibleName = "OwnerEmailLabel";
+            this.OwnerEmailLabel.AutoSize = true;
+            this.OwnerEmailLabel.Location = new System.Drawing.Point(409, 34);
+            this.OwnerEmailLabel.Name = "OwnerEmailLabel";
+            this.OwnerEmailLabel.Size = new System.Drawing.Size(32, 13);
+            this.OwnerEmailLabel.TabIndex = 6;
+            this.OwnerEmailLabel.Text = "Email";
+            // 
+            // LibraryOwnerENumberInput
+            // 
+            this.LibraryOwnerENumberInput.AccessibleName = "LibraryOwnerENumberInput";
+            this.LibraryOwnerENumberInput.Location = new System.Drawing.Point(277, 62);
+            this.LibraryOwnerENumberInput.Name = "LibraryOwnerENumberInput";
+            this.LibraryOwnerENumberInput.ReadOnly = true;
+            this.LibraryOwnerENumberInput.Size = new System.Drawing.Size(115, 20);
+            this.LibraryOwnerENumberInput.TabIndex = 5;
+            // 
+            // ENumberLabel
+            // 
+            this.ENumberLabel.AccessibleName = "ENumberLabel";
+            this.ENumberLabel.AutoSize = true;
+            this.ENumberLabel.Location = new System.Drawing.Point(274, 34);
+            this.ENumberLabel.Name = "ENumberLabel";
+            this.ENumberLabel.Size = new System.Drawing.Size(54, 13);
+            this.ENumberLabel.TabIndex = 4;
+            this.ENumberLabel.Text = "E Number";
+            // 
+            // LibraryOwnerPhoneInput
+            // 
+            this.LibraryOwnerPhoneInput.AccessibleName = "LibraryOwnerPhoneInput";
+            this.LibraryOwnerPhoneInput.Location = new System.Drawing.Point(139, 62);
+            this.LibraryOwnerPhoneInput.Name = "LibraryOwnerPhoneInput";
+            this.LibraryOwnerPhoneInput.ReadOnly = true;
+            this.LibraryOwnerPhoneInput.Size = new System.Drawing.Size(115, 20);
+            this.LibraryOwnerPhoneInput.TabIndex = 3;
+            // 
+            // PhoneNumberLabel
+            // 
+            this.PhoneNumberLabel.AccessibleName = "PhoneNumberLabel";
+            this.PhoneNumberLabel.AutoSize = true;
+            this.PhoneNumberLabel.Location = new System.Drawing.Point(136, 34);
+            this.PhoneNumberLabel.Name = "PhoneNumberLabel";
+            this.PhoneNumberLabel.Size = new System.Drawing.Size(78, 13);
+            this.PhoneNumberLabel.TabIndex = 2;
+            this.PhoneNumberLabel.Text = "Phone Number";
+            // 
+            // LibraryOwnerNameInput
+            // 
+            this.LibraryOwnerNameInput.AccessibleName = "LibraryOwnerNameInput";
+            this.LibraryOwnerNameInput.Location = new System.Drawing.Point(9, 62);
+            this.LibraryOwnerNameInput.Name = "LibraryOwnerNameInput";
+            this.LibraryOwnerNameInput.ReadOnly = true;
+            this.LibraryOwnerNameInput.Size = new System.Drawing.Size(115, 20);
+            this.LibraryOwnerNameInput.TabIndex = 1;
+            // 
+            // LibraryOwnerNameLabel
+            // 
+            this.LibraryOwnerNameLabel.AccessibleName = "LibraryOwnerNameLabel";
+            this.LibraryOwnerNameLabel.AutoSize = true;
+            this.LibraryOwnerNameLabel.Location = new System.Drawing.Point(6, 34);
+            this.LibraryOwnerNameLabel.Name = "LibraryOwnerNameLabel";
+            this.LibraryOwnerNameLabel.Size = new System.Drawing.Size(103, 13);
+            this.LibraryOwnerNameLabel.TabIndex = 0;
+            this.LibraryOwnerNameLabel.Text = "Library Owner Name";
             // 
             // PersonalLibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 555);
+            this.ClientSize = new System.Drawing.Size(789, 581);
+            this.Controls.Add(this.LibraryOwnerBottomBox);
             this.Controls.Add(this.BooksInLibrary);
-            this.Controls.Add(this.LibraryOwnerBox);
-            this.Controls.Add(this.BookDetails);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.BookDetails);
+            this.Controls.Add(this.LibraryOwnerBox);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "PersonalLibraryForm";
             this.Text = "Project 2 Main Screen";
@@ -772,6 +926,8 @@ namespace PersonalLibraryGUI
             this.LibraryOwnerBox.PerformLayout();
             this.BookDetails.ResumeLayout(false);
             this.BookDetails.PerformLayout();
+            this.LibraryOwnerBottomBox.ResumeLayout(false);
+            this.LibraryOwnerBottomBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -870,7 +1026,7 @@ namespace PersonalLibraryGUI
         /// <summary>
         /// Defines the toolStripStatusLabel1.
         /// </summary>
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel SortStatus;
 
         /// <summary>
         /// Defines the InvalidLabel.
@@ -1023,5 +1179,18 @@ namespace PersonalLibraryGUI
         private System.Windows.Forms.TextBox Title;
         private System.Windows.Forms.Button Update;
         private System.Windows.Forms.Button CancelUpdateOwner;
+        private System.Windows.Forms.Button AddBookButton;
+        private System.Windows.Forms.GroupBox LibraryOwnerBottomBox;
+        private System.Windows.Forms.TextBox LibraryOwnerEmailInput;
+        private System.Windows.Forms.Label OwnerEmailLabel;
+        private System.Windows.Forms.TextBox LibraryOwnerENumberInput;
+        private System.Windows.Forms.Label ENumberLabel;
+        private System.Windows.Forms.TextBox LibraryOwnerPhoneInput;
+        private System.Windows.Forms.Label PhoneNumberLabel;
+        private System.Windows.Forms.TextBox LibraryOwnerNameInput;
+        private System.Windows.Forms.Label LibraryOwnerNameLabel;
+        private System.Windows.Forms.ToolStripStatusLabel SaveStatus;
+        private System.Windows.Forms.ToolStripStatusLabel NumberOfBooksStatus;
+        private System.Windows.Forms.ToolStripStatusLabel DateTimeStatus;
     }
 }

@@ -1,10 +1,24 @@
-﻿
+﻿///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	Solution/Project:  Personal Library GUI
+//	File Name:         SplashScreenForm.Designer.cs
+//	Description:       Logic to display the custom Splash Screen.
+//	Course:            CSCI 2210 - Data Structures	
+//	Author:            Joshua Trimm, trimmj@etsu.edu
+//	Created:           10/24/2021
+//	Copyright:         Joshua Trimm, 2021
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 namespace PersonalLibraryGUI
 {
+    /// <summary>
+    /// Defines the <see cref="SplashScreenForm" />.
+    /// </summary>
     partial class SplashScreenForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// Required designer variable..
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -20,8 +34,6 @@ namespace PersonalLibraryGUI
             }
             base.Dispose(disposing);
         }
-
-        #region Windows Form Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -44,8 +56,8 @@ namespace PersonalLibraryGUI
             // Version
             // 
             this.Version.AccessibleName = "Version";
-            this.Version.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.Version.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Version.AutoSize = true;
             this.Version.BackColor = System.Drawing.Color.Transparent;
@@ -73,12 +85,16 @@ namespace PersonalLibraryGUI
             this.Load += new System.EventHandler(this.SplashScreenForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
-        #endregion
-
+        /// <summary>
+        /// Defines the timer1.
+        /// </summary>
         private System.Windows.Forms.Timer timer1;
+
+        /// <summary>
+        /// Defines the Version.
+        /// </summary>
         private System.Windows.Forms.Label Version;
     }
 }

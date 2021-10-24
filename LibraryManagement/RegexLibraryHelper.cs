@@ -26,18 +26,18 @@ namespace LibraryManagement
         private readonly string ZipCodeValidationString = @"^\d{5}(-\d{4})?$";
 
         /// <summary>
-        /// The regex ETSU Student Id pattern
+        /// The regex ETSU Student Id pattern.
         /// </summary>
         private readonly string IdValidationString = @"^[E][0][0]\d{6}$";
 
         /// <summary>
         /// The regex Phone Number pattern
-        /// https://regexlib.com/Search.aspx?k=phone&AspxAutoDetectCookieSupport=1.
+        /// https://regexlib.com/Search.aspx?k=phone&AspxAutoDetectCookieSupport=1..
         /// </summary>
         private readonly string PhoneNumberValidationString = @"^[2-9]\d{2}-\d{3}-\d{4}$";
 
         /// <summary>
-        /// The regex Email pattern
+        /// The regex Email pattern.
         /// </summary>
         private readonly string EmailValidationString = @"^[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z_+])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9}$";
 

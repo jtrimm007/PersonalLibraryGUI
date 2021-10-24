@@ -1,18 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	Solution/Project:  Personal Library GUI
+//	Library Purpose:   To add a layer of abstraction to implement DRY programing principles.
+//	File Name:         FileManager.cs
+//	Description:       The FileManager is used to Open, read, and save files. 
+//	Course:            CSCI 2210 - Data Structures	
+//	Author:            Joshua Trimm, trimmj@etsu.edu
+//	Created:           10/24/2021
+//	Copyright:         Joshua Trimm, 2021
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace LibraryManagement
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Windows.Forms;
+
+    /// <summary>
+    /// The <see cref="FileManager" /> is used to Open, read, and save files.
+    /// </summary>
     public static class FileManager
     {
+        /// <summary>
+        /// Gets the TextFromFile. This is just a long string with the delimiters from the text file.
+        /// </summary>
+        public static string TextFromFile { get; private set; }
 
-        public static string TextFromFile { get; set; }
+        /// <summary>
+        /// Defines the GlobalDelimiter.
+        /// </summary>
         public static char GlobalDelimiter = '|';
+
+        /// <summary>
+        /// Gets the path of the opened file.
+        /// </summary>
         public static string OpenedFilePath { get; private set; }
 
         /// <summary>
@@ -69,20 +92,27 @@ namespace LibraryManagement
             return openFileDialog;
         }
 
+        /// <summary>
+        /// The SaveLibrary method is used to open a save dialog box and save the Personal Library to a text file.
+        /// </summary>
+        /// <param name="personalLibrary">The personalLibrary<see cref="PersonalLibrary"/>.</param>
         public static void SaveLibrary(PersonalLibrary personalLibrary)
         {
-            SaveFileDialog saveFileDialog = SaveFileDialogBox();
+            SaveFileDialog saveFileDialog = SaveFileDialogBox(); // open the Save File Dialog Box
 
-            if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
+            if (saveFileDialog.ShowDialog() == DialogResult.Cancel) // if the user cancels, close the save window
             {
                 return;
             }
 
-            StreamWriter streamWriter = null;
+            StreamWriter streamWriter = null; // declare a StreamWriter to write the Personal Library information to the file.
 
             try
             {
+                // instantiate the StreamWriter.
                 streamWriter = new StreamWriter(new FileStream(saveFileDialog.FileName, FileMode.Create, FileAccess.Write));
+
+                // write the Personal Library data to the file.
                 streamWriter.Write(FormateStringToSaveToFile(personalLibrary));
             }
             catch (Exception error)
@@ -91,13 +121,18 @@ namespace LibraryManagement
             }
             finally
             {
-                if(streamWriter != null)
+                if (streamWriter != null)
                 {
+                    // close the StreamWriter after it is finish. 
                     streamWriter.Close();
                 }
             }
         }
 
+        /// <summary>
+        /// The SaveFileDialogBox method defines the folder location of the Initial Directory. It also creates a new SaveFileDialog object and returns it.
+        /// </summary>
+        /// <returns>The <see cref="SaveFileDialog"/>.</returns>
         private static SaveFileDialog SaveFileDialogBox()
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -109,27 +144,54 @@ namespace LibraryManagement
             return saveFileDialog;
         }
 
+        /// <summary>
+        /// The FormateStringToSaveToFile formates a string to save to a text file. It gets the owner delimited data and the list of books delimited data and combines the data to save. 
+        /// </summary>
+        /// <param name="personalLibrary">The personalLibrary<see cref="PersonalLibrary"/>.</param>
+        /// <returns>The <see cref="string"/>.</returns>
         private static string FormateStringToSaveToFile(PersonalLibrary personalLibrary)
         {
+            // format the list of books into delimited form.
             var formatedListOfBooks = FormateListOfBooks(personalLibrary.GetBooksList());
+
+            // format the library owners details into delimited form.
             var ownerInfoFormated = FormatLibrarOwnerLine(personalLibrary.LibraryOwner);
 
+            // return the new delimited string representing the Personal Library.
             return $"{ownerInfoFormated}\n{formatedListOfBooks}";
         }
+
+        /// <summary>
+        /// The FormateListOfBooks method puts the books into a string that is in delimited form.
+        /// </summary>
+        /// <param name="books">The books<see cref="List{Book}"/>.</param>
+        /// <returns>The <see cref="string"/>.</returns>
         private static string FormateListOfBooks(List<Book> books)
         {
             string pipeDelimiterString = "";
-            foreach(var book in books)
+            foreach (var book in books)
             {
                 pipeDelimiterString += $"{FormateBookLine(book)}\n";
             }
 
             return pipeDelimiterString;
         }
+
+        /// <summary>
+        /// The FormateBookLine takes the books properties and puts them into delimited form.
+        /// </summary>
+        /// <param name="book">The book<see cref="Book"/>.</param>
+        /// <returns>The <see cref="string"/>.</returns>
         private static string FormateBookLine(Book book)
         {
             return $"{book.Type}|{book.Title}|{book.Author}|{book.Coauthor}|{book.Category}|{book.Price}";
         }
+
+        /// <summary>
+        /// The FormatLibrarOwnerLine formats the library's owner's information into a string that is delimited.
+        /// </summary>
+        /// <param name="person">The person<see cref="Person"/>.</param>
+        /// <returns>The <see cref="string"/>.</returns>
         private static string FormatLibrarOwnerLine(Person person)
         {
             return $"{person.FirstName} {person.LastName}|{person.StreetAddressLineOne} {person.AddressLineTwo}|{person.City}|{person.State}|{person.Zip}|{person.Id}|{person.PhoneNumber}|{person.Email}";

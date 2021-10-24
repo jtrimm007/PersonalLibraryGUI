@@ -1,31 +1,32 @@
-Joshua Trimm|10 Downing Street |Johnson City|tn|39844|E00987654|423-341-5125|joshua@trimyard.com
-Print|My Insane Asylum|Joshua Trimm||Biography|19.95
-Digital|100 Things|Susan M. Weinshenk||Textbook|39.40
+Joshua Trimm|10 Downing Street  |Johnson City|tn|39844|E00987654|423-341-5125|joshua@trimyard.com
 Digital|100 More Things|Susan M. Weinshenk||Textbook|39
-Print|Software Requirements|Karl Wiegers|Joy Beatty|Textbook|87.21
-Print|The Unified Modeling Language User Guide|Grady Booch|James Rumbaugh|Textbook|12
-Print|Regular Expression Pocket Reference|Tony Stubblebine||Textbook|12.14
-|Unhinged|Omarosa||Biography|9.14
-Digital|Getting Past NO|Joe More|||9.14
-Digital|The Phoenix Project|Gene Kim|Kevin Behr|Other|104.14
-Print|Style Lessions in Clarity and Grace|Williams Bizup||Textbook|0
-Print|Peopleware|DeMarco||Other|0.99
-Digital|JavaScript: The Good Pars|Crockford||Textbook|15.99
-Print|The Effective Executive|Peter F. Drucker||Textbook|20
-Print|JavaScript Patterns|Stefovof||Textbook|24.99
-Print|UX for Beginners|Joshua Trimm||Other|2000.99
-Print|The Lean Startup|Joshua Trimm||History|2000.99
-Print|Gokking Algorithms|Joshua Trimm||Other|2000.99
-Print|Information Architecture|Joshua Trimm||Other|2000.99
 Print|100 Thing Ever Angle Investor Wants to Hear|Joshua Trimm||Other|2000.99
-Print|Satan's Scrum|Joshua Trimm||Other|2000.99
-Print|Don't Make Me Think|Doug Krug||Other|2000.99
+Digital|100 Things|Susan M. Weinshenk||Textbook|39.40
 Print|Advances in Machine Learning for Finances|Joshua Trimm|||2000.99
+Print|Don't Make Me Think|Doug Krug||Other|2000.99
+Digital|Getting Past NO|Joe More|||9.14
+Print|Gokking Algorithms|Joshua Trimm||Other|2000.99
 Print|High-frequency Trading|CeMore Flowers||Mystery|2000.99
+Print|Information Architecture|Joshua Trimm||Other|2000.99
+Print|JavaScript Patterns|Stefovof||Textbook|24.99
+Digital|JavaScript: The Good Pars|Crockford||Textbook|15.99
+Print|My Insane Asylum|Joshua Trimm||Biography|19.95
 Print|My Personal Journey to Write a Book with a Long Title|Joshua Trimm|Alowaki|Other|2000.99
+Print|Peopleware|DeMarco||Other|0.99
+Print|Regular Expression Pocket Reference|Tony Stubblebine||Textbook|12.14
+Print|Satan's Scrum|Joshua Trimm||Other|2000.99
+Print|Software Requirements|Karl Wiegers|Joy Beatty|Textbook|87.21
 Print|Sprint|Joshua Trimm||Other|2000.99
 Print|Sprint|Joshua Trimm||Other|2000.99
 Print|Sprint|Joshua Trimm||Other|2000.99
 Print|Sprint|Joshua Trimm||Other|2000.99
 Print|Sprint|Joshua Trimm||Other|2000.99
 Print|Sprint|Joshua Trimm||Other|2000.99
+Print|Style Lessions in Clarity and Grace|Williams Bizup||Textbook|0
+Print|The Effective Executive|Peter F. Drucker||Textbook|20
+Print|The Lean Startup|Joshua Trimm||History|2000.99
+Digital|The Phoenix Project|Gene Kim|Kevin Behr|Other|104.14
+Print|The Unified Modeling Language User Guide|Grady Booch|James Rumbaugh|Textbook|12
+|Unhinged|Omarosa||Biography|9.14
+Print|UX for Beginners|Joshua Trimm||Other|2000.99
+Print|TEst|Me|You & Someone|Other|99999

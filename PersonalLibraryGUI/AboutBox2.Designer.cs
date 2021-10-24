@@ -1,16 +1,31 @@
-﻿
+﻿///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	Solution/Project:  Personal Library GUI
+//	File Name:         AboutBox2.Designer.cs
+//	Description:       The logic to display the about window
+//	Course:            CSCI 2210 - Data Structures	
+//	Author:            Joshua Trimm, trimmj@etsu.edu
+//	Created:           10/24/2021
+//	Copyright:         Joshua Trimm, 2021
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 namespace PersonalLibraryGUI
 {
+    /// <summary>
+    /// Defines the <see cref="AboutBox2" />.
+    /// </summary>
     partial class AboutBox2
     {
         /// <summary>
-        /// Required designer variable.
+        /// Required designer variable..
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
+        /// <param name="disposing">The disposing<see cref="bool"/>.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -19,8 +34,6 @@ namespace PersonalLibraryGUI
             }
             base.Dispose(disposing);
         }
-
-        #region Windows Form Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -170,18 +183,46 @@ namespace PersonalLibraryGUI
             this.tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             this.ResumeLayout(false);
-
         }
 
-        #endregion
-
+        /// <summary>
+        /// Defines the tableLayoutPanel.
+        /// </summary>
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
+
+        /// <summary>
+        /// Defines the logoPictureBox.
+        /// </summary>
         private System.Windows.Forms.PictureBox logoPictureBox;
+
+        /// <summary>
+        /// Defines the labelProductName.
+        /// </summary>
         private System.Windows.Forms.Label labelProductName;
+
+        /// <summary>
+        /// Defines the labelVersion.
+        /// </summary>
         private System.Windows.Forms.Label labelVersion;
+
+        /// <summary>
+        /// Defines the labelCopyright.
+        /// </summary>
         private System.Windows.Forms.Label labelCopyright;
+
+        /// <summary>
+        /// Defines the labelCompanyName.
+        /// </summary>
         private System.Windows.Forms.Label labelCompanyName;
+
+        /// <summary>
+        /// Defines the textBoxDescription.
+        /// </summary>
         private System.Windows.Forms.TextBox textBoxDescription;
+
+        /// <summary>
+        /// Defines the okButton.
+        /// </summary>
         private System.Windows.Forms.Button okButton;
     }
 }
